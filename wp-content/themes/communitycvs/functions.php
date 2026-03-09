@@ -18,6 +18,9 @@ add_action( 'after_setup_theme', 'communitycvs_setup' );
  * Enqueue scripts and styles.
  */
 function communitycvs_scripts() {
+    // Enqueue Google Fonts
+    wp_enqueue_style( 'communitycvs-google-fonts', 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap', array(), null );
+
     // Enqueue the main stylesheet
     wp_enqueue_style( 'communitycvs-style', get_stylesheet_uri() );
     
