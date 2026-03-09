@@ -2,10 +2,15 @@
 @import 'variables';
 // Import other SCSS files here
 
+html {
+    font-size: 62.5%; // Sets 1rem = 10px (based on browser default 16px)
+}
+
 body {
     background-color: #f0f0f0;
     font-family: $font-primary;
     color: $text-color;
+    font-size: 1.6rem; // Reset body text to 16px
 }
 
 h1, h2, h3, h4, h5, h6 {
