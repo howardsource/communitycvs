@@ -28,3 +28,27 @@ function communitycvs_scripts() {
     wp_enqueue_script( 'communitycvs-script', get_template_directory_uri() . '/js/app.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'communitycvs_scripts' );
+
+/**
+ * ACF JSON Save Point
+ */
+add_filter('acf/settings/save_json', 'communitycvs_acf_json_save_point');
+function communitycvs_acf_json_save_point( $path ) {
+    // update path
+    $path = get_stylesheet_directory() . '/acf-json';
+    return $path;
+}
+
+/**
+ * ACF JSON Load Point
+ */
+add_filter('acf/settings/load_json', 'communitycvs_acf_json_load_point');
+function communitycvs_acf_json_load_point( $paths ) {
+    // remove original path (optional)
+    unset($paths[0]);
+    
+    // append path
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+}
+
