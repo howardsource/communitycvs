@@ -25,7 +25,7 @@ function communitycvs_scripts() {
     wp_enqueue_style( 'communitycvs-style', get_stylesheet_uri() );
     
     // Enqueue compiled CSS from SCSS
-    wp_enqueue_style( 'communitycvs-main', get_template_directory_uri() . '/css/main.css', array(), '1.0.0' );
+    wp_enqueue_style( 'communitycvs-main', get_template_directory_uri() . '/css/main.css', array(), '1.0.1' );
 
     // Enqueue script
     wp_enqueue_script( 'communitycvs-script', get_template_directory_uri() . '/js/app.js', array(), '1.0.0', true );
