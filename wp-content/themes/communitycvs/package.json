@@ -1,0 +1,20 @@
+{
+  "name": "communitycvs-theme",
+  "version": "1.0.0",
+  "description": "Custom WordPress theme for Community CVS",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass scss/main.scss css/main.css --style compressed",
+    "watch": "sass --watch scss/main.scss:css/main.css --style expanded"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "scss"
+  ],
+  "author": "Howard Marsden",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

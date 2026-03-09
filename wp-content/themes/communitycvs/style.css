@@ -1,0 +1,12 @@
+/*
+Theme Name: Community CVS
+Theme URI: https://github.com/howardsource/communitycvs
+Author: Howard Marsden
+Description: Custom WordPress theme for Community CVS
+Version: 1.0.0
+Text Domain: communitycvs
+*/
+
+/* This file is main entry point for WordPress theme styles.
+   However, we will be compiling SCSS to /css/main.css, so actual styles should be imported or enqueued from there.
+*/
