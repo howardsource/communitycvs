@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "sass scss/main.scss css/main.css --style compressed",
-    "watch": "sass --watch scss/main.scss:css/main.css --style expanded"
+    "watch:css": "sass --watch scss/main.scss:css/main.css --style expanded",
+    "watch:sync": "browser-sync start --proxy 'http://howardair.local/communitycvs/' --files 'css/*.css, **/*.php, js/*.js' --no-notify",
+    "watch": "concurrently \"npm run watch:css\" \"npm run watch:sync\""
   },
   "keywords": [
     "wordpress",
@@ -15,6 +17,8 @@
   "author": "Howard Marsden",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "sass": "^1.69.0"
   }
 }
