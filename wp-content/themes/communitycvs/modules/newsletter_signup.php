@@ -1,7 +1,6 @@
-<section class="module newsletter call-to-action outer gradient reveal">
+<section class="module newsletter outer lime-green">
 	<div class="inner">
-		<h2>Get the Latest</h2>
-		<p>Sign up to our newsletter to find out the latest on the festival, our year round work and Art in Manufacturing.</p>
-		<p class="large-button-link"><a href="#">Subscribe</a></p>
+		<p>Sign up to our email bulletins for all the latest information, news and events</p>
+		<p class="button-link solid blue"><a href="#">Sign Up</a></p>
 	</div>	
 </section>

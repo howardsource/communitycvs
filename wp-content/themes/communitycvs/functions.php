@@ -6,6 +6,8 @@
 function communitycvs_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
+    add_image_size( 'carousel', 1920, 1080, true );
+    add_image_size( 'half-width', 800, 450, true );
     
     // Register Navigation Menus
     register_nav_menus( array(
@@ -13,6 +15,14 @@ function communitycvs_setup() {
     ) );
 }
 add_action( 'after_setup_theme', 'communitycvs_setup' );
+
+function communitycvs_custom_image_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'carousel' => __( 'Carousel', 'communitycvs' ),
+        'half-width' => __( 'Half Width', 'communitycvs' ),
+    ) );
+}
+add_filter( 'image_size_names_choose', 'communitycvs_custom_image_sizes' );
 
 /**
  * Enqueue scripts and styles.
@@ -25,7 +35,8 @@ function communitycvs_scripts() {
     wp_enqueue_style( 'communitycvs-style', get_stylesheet_uri() );
     
     // Enqueue compiled CSS from SCSS
-    wp_enqueue_style( 'communitycvs-main', get_template_directory_uri() . '/css/main.css', array(), '1.0.1' );
+    $css_version = file_exists( get_template_directory() . '/css/main.css' ) ? filemtime( get_template_directory() . '/css/main.css' ) : '1.0.1';
+    wp_enqueue_style( 'communitycvs-main', get_template_directory_uri() . '/css/main.css', array(), $css_version );
 
     // Enqueue script
     wp_enqueue_script( 'communitycvs-script', get_template_directory_uri() . '/js/app.js', array(), '1.0.0', true );
@@ -54,4 +65,3 @@ function communitycvs_acf_json_load_point( $paths ) {
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
 }
-

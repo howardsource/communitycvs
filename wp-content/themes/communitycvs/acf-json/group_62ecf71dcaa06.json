@@ -334,9 +334,27 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_69300c752e042",
-            "label": "Padding Top",
-            "name": "padding_top",
+            "key": "field_69b03720f3196",
+            "label": "Settings",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_69b03729f3197",
+            "label": "Background Colour",
+            "name": "background_colour",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -348,10 +366,10 @@
                 "id": ""
             },
             "choices": {
-                "default": "Default",
-                "big": "Big"
+                "white": "White",
+                "tint": "Tinted"
             },
-            "default_value": "default",
+            "default_value": "white",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -382,5 +400,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764756633
+    "modified": 1773156162
 }

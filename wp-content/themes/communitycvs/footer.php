@@ -1,8 +1,8 @@
 </main>
 
-<footer class="site-footer">
-    <div class="container">
-        <p>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
+<footer class="site-footer outer">
+    <div class="inner">
+        <p>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></p>
     </div>
 </footer>
 

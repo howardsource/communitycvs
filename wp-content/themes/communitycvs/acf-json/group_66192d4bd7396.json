@@ -49,15 +49,7 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_67f91285c1678",
-                        "operator": "==",
-                        "value": "static"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -76,11 +68,11 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_692f5873f9d54",
-            "label": "Narrow Banner",
-            "name": "narrow_banner",
+            "key": "field_69b03ec9f85a7",
+            "label": "Banner Colour",
+            "name": "banner_colour",
             "aria-label": "",
-            "type": "true_false",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -89,12 +81,25 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "teal-blue": "Teal Blue",
+                "olive-green": "Olive Green",
+                "dark-blue": "Dark Blue",
+                "teal-green": "Teal Green",
+                "purple": "Purple",
+                "lime-green": "Lime Green",
+                "orange-yellow": "Orange Yellow"
+            },
+            "default_value": "teal-blue",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
             "allow_in_bindings": 0,
             "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -134,5 +139,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764750926
+    "modified": 1773822769
 }

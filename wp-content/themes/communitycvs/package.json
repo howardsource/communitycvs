@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "sass scss/main.scss css/main.css --style compressed",
-    "watch:css": "sass --watch scss/main.scss:css/main.css --style expanded",
-    "watch:sync": "browser-sync start --proxy 'http://howardair.local/communitycvs/' --files 'css/*.css, **/*.php, js/*.js' --no-notify",
+    "watch:css": "sass --watch scss/main.scss:css/main.css --style expanded --poll",
+    "watch:sync": "browser-sync start --proxy 'http://howardair.local/communitycvs/' --files 'css/main.css, **/*.php, js/*.js' --reload-debounce 500 --reload-delay 100 --no-notify --no-open",
     "watch": "concurrently \"npm run watch:css\" \"npm run watch:sync\""
   },
   "keywords": [

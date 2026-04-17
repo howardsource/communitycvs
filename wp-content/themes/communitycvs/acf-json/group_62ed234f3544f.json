@@ -183,17 +183,82 @@
                 "id": ""
             },
             "choices": {
-                "black": "Black",
-                "yellow": "Yellow"
+                "teal-blue": "Teal Blue",
+                "olive-green": "Olive Green",
+                "dark-blue": "Dark Blue",
+                "teal-green": "Teal Green",
+                "purple": "Purple",
+                "lime-green": "Lime Green",
+                "orange-yellow": "Orange Yellow"
             },
-            "default_value": "black",
+            "default_value": "teal-blue",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
             "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69b129524081f",
+            "label": "Image Position",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "right-image": "Right",
+                "left-image": "Left"
+            },
+            "default_value": "right-image",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69b9230077fcd",
+            "label": "Image Size",
+            "name": "image_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cover": "Cover",
+                "contain": "Contain"
+            },
+            "default_value": "cover",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -214,5 +279,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1744306940
+    "display_title": "",
+    "modified": 1773740835
 }

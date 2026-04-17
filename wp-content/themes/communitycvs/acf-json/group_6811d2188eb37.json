@@ -75,7 +75,7 @@
                 },
                 {
                     "key": "field_6811d7d01d6cf",
-                    "label": "Role",
+                    "label": "Job Title",
                     "name": "role",
                     "aria-label": "",
                     "type": "text",
@@ -96,31 +96,9 @@
                     "parent_repeater": "field_6811d2189483f"
                 },
                 {
-                    "key": "field_6811d24894842",
-                    "label": "Bio",
-                    "name": "bio",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "allow_in_bindings": 0,
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0,
-                    "parent_repeater": "field_6811d2189483f"
-                },
-                {
-                    "key": "field_692f4c7c27cb2",
-                    "label": "Mobile",
-                    "name": "mobile",
+                    "key": "field_69b942db03bec",
+                    "label": "Business Team",
+                    "name": "business_team",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -160,6 +138,28 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_6811d2189483f"
+                },
+                {
+                    "key": "field_6811d24894842",
+                    "label": "Bio",
+                    "name": "bio",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_6811d2189483f"
                 }
             ]
         }
@@ -183,5 +183,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764707526
+    "modified": 1773749032
 }

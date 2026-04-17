@@ -1,21 +1,27 @@
+<?php get_header(); ?>
+<?php if (is_page() && !is_front_page()) : ?>
 <?php
-get_header();
+$banner_colour = get_field('banner_colour');
+$banner_image = get_field('banner_image');
+$banner_class = 'title-banner outer';
+if ($banner_colour) $banner_class .= ' ' . esc_attr($banner_colour);
+if ($banner_image) $banner_class .= ' has-image';
+if (!$banner_image) $banner_class .= ' no-image';
+?>
+<section class="<?php echo $banner_class; ?>">
+	<div class="band">
+		<div class="inner">
+			<h2><?php the_title(); ?></h2>
+			<?php if ($banner_image) : ?>
+			<div class="banner-image" style="background-image: url(<?php echo esc_url($banner_image['sizes']['carousel']); ?>)"></div>
+			<?php endif; ?>
+		</div>
+	</div>
+</section>
+<?php if ( function_exists('yoast_breadcrumb') ) {
+	yoast_breadcrumb( '<div id="breadcrumbs" class="outer"><div class="yoast-breadcrumbs inner">','</div></div>' );
+} ?>
 
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-		?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			<div class="entry-content">
-				<?php the_content(); ?>
-			</div>
-            <?php get_template_part('modules'); ?>
-		</article>
-		<?php
-	endwhile;
-else :
-	echo '<p>No content found</p>';
-endif;
-
-get_footer();
+<?php endif; ?>
+<?php get_template_part('modules'); ?>
+<?php get_footer(); ?>
