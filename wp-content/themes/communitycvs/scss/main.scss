@@ -14,6 +14,12 @@ body {
     font-size: 1.6rem; // Reset body text to 16px
 }
 
+strong {
+    font-weight: 600;
+}
+
+
+
 h1, h2, h3, h4, h5, h6 {
     color: $header-color;
 }
@@ -925,6 +931,10 @@ body.page .site-main {
         .inner {
             max-width: 1073px;
             width: calc(100% - 80px);
+            a {
+                color: $c_dark-blue;
+                text-decoration: underline;
+            }
         }
     }
     .news-lists {

@@ -80,6 +80,10 @@ body {
   font-size: 1.6rem;
 }
 
+strong {
+  font-weight: 600;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #29317B;
 }
@@ -965,6 +969,10 @@ body.page .site-main {
 #modules .columns .inner {
   max-width: 1073px;
   width: calc(100% - 80px);
+}
+#modules .columns .inner a {
+  color: #29317B;
+  text-decoration: underline;
 }
 #modules .news-lists {
   padding: 36px 0 72px 0;
