@@ -327,18 +327,23 @@
                                     "aria-label": "",
                                     "type": "post_object",
                                     "instructions": "",
-                                    "required": false,
+                                    "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "post_type": [],
-                                    "taxonomy": [],
-                                    "allow_null": 0,
-                                    "multiple": 0,
+                                    "post_type": [
+                                        "page"
+                                    ],
+                                    "post_status": "",
+                                    "taxonomy": "",
                                     "return_format": "object",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 1,
+                                    "bidirectional": 0,
                                     "ui": 1,
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_69bbbcea1ceec"
@@ -371,5 +376,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773911901
+    "modified": 1776772026
 }

@@ -1,6 +1,8 @@
 
 <?php
 $cardType = isset($module['card_type']) ? $module['card_type'] : 'image';
+$cardLayout = isset($module['card_layout']) ? $module['card_layout'] : '3-col';
+$tileImageSize = ($cardLayout === '2-col') ? 'two-col' : 'half-width';
 $tileAccentMap = array(
 	'orange-yellow' => '#F9B233',
 	'teal-blue' => '#17709A',
@@ -11,7 +13,7 @@ $tileAccentMap = array(
 	'lime-green' => '#91BC3D',
 );
 ?>
-<section class="outer module tiles <?= $module['background_colour']; ?> <?= $module['tile_group_type']; ?> card-type-<?= $cardType; ?>">
+<section class="outer module tiles <?= $module['background_colour']; ?> card-layout-<?= $cardLayout; ?> <?= $module['tile_group_type']; ?> card-type-<?= $cardType; ?>">
 	<?php if($module['display_title']) : ?>
 	<div class="inner module-title"><h2><?= $module['title']; ?></h2></div>
 	<?php endif; ?>
@@ -20,10 +22,18 @@ $tileAccentMap = array(
 		<?php
 		$tileColour = isset($tile['tile_colour']) ? $tile['tile_colour'] : '';
 		$tileAccent = $tileColour && isset($tileAccentMap[$tileColour]) ? $tileAccentMap[$tileColour] : '';
+		$tileImageUrl = '';
+		if (!empty($tile['image']['sizes'][$tileImageSize])) {
+			$tileImageUrl = $tile['image']['sizes'][$tileImageSize];
+		} elseif (!empty($tile['image']['sizes']['half-width'])) {
+			$tileImageUrl = $tile['image']['sizes']['half-width'];
+		} elseif (!empty($tile['image']['url'])) {
+			$tileImageUrl = $tile['image']['url'];
+		}
 		?>
 		<div class="tile <?= $tileColour; ?>"<?php if($tileAccent) : ?> style="--tile-accent: <?= $tileAccent; ?>"<?php endif; ?>>
-			<?php if($cardType=='image' && !empty($tile['image'])) : ?>
-			<div class="image-outer"><div class="image" style="background-image: url(<?= $tile['image']['sizes']['half-width']; ?>)"></div></div>
+			<?php if($cardType=='image' && $tileImageUrl !== '') : ?>
+			<div class="image-outer"><div class="image" style="background-image: url(<?= esc_url($tileImageUrl); ?>)"></div></div>
 			<?php endif; ?>
 			<h4><a href="<?= $tile['link']; ?>"><?= $tile['title']; ?></a></h4>
 			<?php if($tile['excerpt']!='') : ?><h5><?= $tile['excerpt']; ?></h5><?php endif; ?>

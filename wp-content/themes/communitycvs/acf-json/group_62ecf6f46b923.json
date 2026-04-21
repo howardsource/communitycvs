@@ -320,6 +320,89 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_69e77fe19ecce": {
+                    "key": "layout_69e77fe19ecce",
+                    "name": "illustrated_quote",
+                    "label": "Illustrated Quote",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69e780169ecd0",
+                            "label": "Quote Paragraph",
+                            "name": "quote_paragraph",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": "",
+                            "placeholder": "",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_69e7802c9ecd1",
+                            "label": "Left Image",
+                            "name": "left_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_69e780369ecd2",
+                            "label": "Right Image",
+                            "name": "right_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -346,7 +429,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": ""
+                "value": "menus"
             }
         ]
     ],
@@ -373,5 +456,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773754588
+    "modified": 1776779330
 }

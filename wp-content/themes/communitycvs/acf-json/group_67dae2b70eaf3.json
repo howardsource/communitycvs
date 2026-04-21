@@ -21,16 +21,16 @@
             "selected": 0
         },
         {
-            "key": "field_67dae2b736b19",
-            "label": "Carousel",
-            "name": "panels",
+            "key": "field_6a1a_home_carousel_slides",
+            "label": "Slides",
+            "name": "home_carousel_slides",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "100",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -39,11 +39,11 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add slide",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_67dae67186181",
+                    "key": "field_6a1a_home_carousel_image",
                     "label": "Image",
                     "name": "image",
                     "aria-label": "",
@@ -65,32 +65,101 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "allow_in_bindings": 0,
                     "preview_size": "medium",
-                    "parent_repeater": "field_67dae2b736b19"
+                    "parent_repeater": "field_6a1a_home_carousel_slides"
+                },
+                {
+                    "key": "field_6a1a_home_carousel_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6a1a_home_carousel_slides"
+                },
+                {
+                    "key": "field_6a1a_home_carousel_text",
+                    "label": "Text",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_6a1a_home_carousel_slides"
+                },
+                {
+                    "key": "field_6a1a_home_carousel_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_6a1a_home_carousel_slides"
+                },
+                {
+                    "key": "field_69e76536d6dc5",
+                    "label": "Background Colour",
+                    "name": "background_colour",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "purple": "Purple",
+                        "orange-yellow": "Orange Yellow",
+                        "lime-green": "Lime Green",
+                        "teal-green": "Teal Green"
+                    },
+                    "default_value": "purple",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_6a1a_home_carousel_slides"
                 }
             ]
-        },
-        {
-            "key": "field_692ebd04b4ca1",
-            "label": "Caption",
-            "name": "caption",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "We shape stories, shift perceptions and build trusted reputations.",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
         }
     ],
     "location": [
@@ -126,5 +195,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765891437
+    "modified": 1776773563
 }

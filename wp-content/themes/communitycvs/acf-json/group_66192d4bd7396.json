@@ -51,7 +51,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "80",
                 "class": "",
                 "id": ""
             },
@@ -66,6 +66,34 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_69e76b9bd8887",
+            "label": "Contain Image?",
+            "name": "contain_image",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66fbe32af78bb",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_69b03ec9f85a7",
@@ -139,5 +167,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773822769
+    "modified": 1776774084
 }

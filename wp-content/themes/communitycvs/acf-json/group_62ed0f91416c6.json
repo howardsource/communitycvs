@@ -162,6 +162,43 @@
             "save_options": 0
         },
         {
+            "key": "field_69e776b0a4af4",
+            "label": "Card Layout",
+            "name": "card_layout",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69b927e23a679",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "3-col": "3 Column Grid",
+                "2-col": "2 Column Grid"
+            },
+            "default_value": "3-col",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_62ed0fa04d30d",
             "label": "Tiles",
             "name": "tiles",
@@ -323,5 +360,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773744985
+    "modified": 1776776991
 }

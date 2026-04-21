@@ -1,12 +1,17 @@
 <?php get_header(); ?>
+<?php if ( is_front_page() ) : ?>
+<?php get_template_part( 'home-carousel' ); ?>
+<?php endif; ?>
 <?php if (is_page() && !is_front_page()) : ?>
 <?php
 $banner_colour = get_field('banner_colour');
 $banner_image = get_field('banner_image');
+$banner_contain_image = get_field('contain_image');
 $banner_class = 'title-banner outer';
 if ($banner_colour) $banner_class .= ' ' . esc_attr($banner_colour);
 if ($banner_image) $banner_class .= ' has-image';
 if (!$banner_image) $banner_class .= ' no-image';
+if ($banner_image && $banner_contain_image) $banner_class .= ' contain-image';
 ?>
 <section class="<?php echo $banner_class; ?>">
 	<div class="band">
