@@ -1163,10 +1163,33 @@ body.page .site-main {
         }
         .image-outer {
             width: 100%;
+            position: relative;
             img {
                 width: 100%;
                 height: auto;
                 display: block;
+            }
+            &.has-hover-image {
+                .image-default {
+                    transition: opacity 120ms ease-in-out;
+                }
+                .image-hover {
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    opacity: 0;
+                    transition: opacity 120ms ease-in-out;
+                }
+            }
+        }
+        .tile:hover .image-outer.has-hover-image {
+            .image-default {
+                opacity: 0;
+            }
+            .image-hover {
+                opacity: 1;
             }
         }
         .link-button {
@@ -1298,12 +1321,27 @@ body.page .site-main {
                     padding: 72px 32px;
                     box-sizing: border-box;
                     .tile {
-                        background-color: color-mix(in srgb, var(--tile-accent) 16%, white);
+                        background-color: #fff;
                         box-shadow: none;
+                        &:hover {
+                            transform: none;
+                        }
                         h4 {
                             padding: 3.2rem 0;
                             font-size: 3.6rem;
                             line-height: 3.6rem;
+                            margin: 0;
+                            background-color: color-mix(in srgb, var(--tile-accent) 16%, white);
+                            transition: background-color 120ms ease-in-out;
+                        }
+                        h5 {
+                            margin: 0;
+                            background-color: color-mix(in srgb, var(--tile-accent) 16%, white);
+                            transition: background-color 120ms ease-in-out;
+                        }
+                        h4:last-child,
+                        h5:last-child {
+                            border-radius: 0 0 12px 12px;
                         }
                         .image-outer {
                             width: 100%;
@@ -1313,9 +1351,41 @@ body.page .site-main {
                         .image {
                             width: 100%;
                             height: 100%;
-                            background-size: cover;
-                            background-repeat: no-repeat;
+                            position: relative;
+                            overflow: hidden;
                             background-color: #fff;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                display: block;
+                            }
+                            &.has-hover-image {
+                                .image-default {
+                                    position: absolute;
+                                    inset: 0;
+                                    opacity: 1;
+                                    transition: opacity 120ms ease-in-out;
+                                }
+                                .image-hover {
+                                    position: absolute;
+                                    inset: 0;
+                                    opacity: 0;
+                                    transition: opacity 120ms ease-in-out;
+                                }
+                            }
+                        }
+                        &:hover .image.has-hover-image {
+                            .image-default {
+                                opacity: 0;
+                            }
+                            .image-hover {
+                                opacity: 1;
+                            }
+                        }
+                        &:hover h4,
+                        &:hover h5 {
+                            background-color: color-mix(in srgb, var(--tile-accent) 40%, white);
                         }
                     }
                 }

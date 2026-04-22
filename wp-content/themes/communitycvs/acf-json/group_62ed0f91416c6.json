@@ -256,6 +256,46 @@
                     "parent_repeater": "field_62ed0fa04d30d"
                 },
                 {
+                    "key": "field_69e8a30d9c31c",
+                    "label": "Image Hover",
+                    "name": "image_hover",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_69e776b0a4af4",
+                                "operator": "==",
+                                "value": "2-col"
+                            },
+                            {
+                                "field": "field_69b927e23a679",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_62ed0fa04d30d"
+                },
+                {
                     "key": "field_62ed0fad4d30e",
                     "label": "Title",
                     "name": "title",
@@ -360,5 +400,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776776991
+    "modified": 1776853797
 }

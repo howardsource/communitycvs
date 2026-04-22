@@ -1191,11 +1191,30 @@ body.page .site-main {
 }
 #modules .illustrated-link-tiles .image-outer {
   width: 100%;
+  position: relative;
 }
 #modules .illustrated-link-tiles .image-outer img {
   width: 100%;
   height: auto;
   display: block;
+}
+#modules .illustrated-link-tiles .image-outer.has-hover-image .image-default {
+  transition: opacity 120ms ease-in-out;
+}
+#modules .illustrated-link-tiles .image-outer.has-hover-image .image-hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 120ms ease-in-out;
+}
+#modules .illustrated-link-tiles .tile:hover .image-outer.has-hover-image .image-default {
+  opacity: 0;
+}
+#modules .illustrated-link-tiles .tile:hover .image-outer.has-hover-image .image-hover {
+  opacity: 1;
 }
 #modules .illustrated-link-tiles .link-button {
   width: 100%;
@@ -1334,13 +1353,28 @@ body.page .site-main {
   box-sizing: border-box;
 }
 #modules .tiles.card-type-image.card-layout-2-col .tile-group .tile {
-  background-color: color-mix(in srgb, var(--tile-accent) 16%, white);
+  background-color: #fff;
   box-shadow: none;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile:hover {
+  transform: none;
 }
 #modules .tiles.card-type-image.card-layout-2-col .tile-group .tile h4 {
   padding: 3.2rem 0;
   font-size: 3.6rem;
   line-height: 3.6rem;
+  margin: 0;
+  background-color: color-mix(in srgb, var(--tile-accent) 16%, white);
+  transition: background-color 120ms ease-in-out;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile h5 {
+  margin: 0;
+  background-color: color-mix(in srgb, var(--tile-accent) 16%, white);
+  transition: background-color 120ms ease-in-out;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile h4:last-child,
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile h5:last-child {
+  border-radius: 0 0 12px 12px;
 }
 #modules .tiles.card-type-image.card-layout-2-col .tile-group .tile .image-outer {
   width: 100%;
@@ -1350,9 +1384,36 @@ body.page .site-main {
 #modules .tiles.card-type-image.card-layout-2-col .tile-group .tile .image {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
   background-color: #fff;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile .image.has-hover-image .image-default {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transition: opacity 120ms ease-in-out;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile .image.has-hover-image .image-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 120ms ease-in-out;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile:hover .image.has-hover-image .image-default {
+  opacity: 0;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile:hover .image.has-hover-image .image-hover {
+  opacity: 1;
+}
+#modules .tiles.card-type-image.card-layout-2-col .tile-group .tile:hover h4, #modules .tiles.card-type-image.card-layout-2-col .tile-group .tile:hover h5 {
+  background-color: color-mix(in srgb, var(--tile-accent) 40%, white);
 }
 #modules .tiles.card-type-image.card-layout-2-col .module-title + .tile-group {
   border-radius: 0 0 12px 12px;

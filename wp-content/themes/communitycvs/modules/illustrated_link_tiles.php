@@ -13,11 +13,15 @@
 			$tile_link = ! empty( $tile['link'] ) ? $tile['link'] : '';
 			$tile_link_id = $tile_link ? url_to_postid( $tile_link ) : 0;
 			$tile_link_text = $tile_link_id ? get_the_title( $tile_link_id ) : 'View';
+			$has_hover_image = ! empty( $tile['illustration_image_hover']['url'] );
 			?>
 			<div class="tile">
 				<?php if ( ! empty( $tile['illustration_image']['url'] ) ) : ?>
-				<div class="image-outer">
-					<img src="<?= esc_url( $tile['illustration_image']['url'] ); ?>" alt="<?= esc_attr( $tile['illustration_image']['alt'] ?? '' ); ?>" />
+				<div class="image-outer<?php if ( $has_hover_image ) : ?> has-hover-image<?php endif; ?>">
+					<img class="image-default" src="<?= esc_url( $tile['illustration_image']['url'] ); ?>" alt="<?= esc_attr( $tile['illustration_image']['alt'] ?? '' ); ?>" />
+					<?php if ( $has_hover_image ) : ?>
+					<img class="image-hover" src="<?= esc_url( $tile['illustration_image_hover']['url'] ); ?>" alt="<?= esc_attr( $tile['illustration_image_hover']['alt'] ?? ( $tile['illustration_image']['alt'] ?? '' ) ); ?>" />
+					<?php endif; ?>
 				</div>
 				<?php endif; ?>
 

@@ -30,10 +30,31 @@ $tileAccentMap = array(
 		} elseif (!empty($tile['image']['url'])) {
 			$tileImageUrl = $tile['image']['url'];
 		}
+		$tileHoverImageUrl = '';
+		if (!empty($tile['image_hover']['sizes'][$tileImageSize])) {
+			$tileHoverImageUrl = $tile['image_hover']['sizes'][$tileImageSize];
+		} elseif (!empty($tile['image_hover']['sizes']['half-width'])) {
+			$tileHoverImageUrl = $tile['image_hover']['sizes']['half-width'];
+		} elseif (!empty($tile['image_hover']['url'])) {
+			$tileHoverImageUrl = $tile['image_hover']['url'];
+		}
 		?>
 		<div class="tile <?= $tileColour; ?>"<?php if($tileAccent) : ?> style="--tile-accent: <?= $tileAccent; ?>"<?php endif; ?>>
 			<?php if($cardType=='image' && $tileImageUrl !== '') : ?>
-			<div class="image-outer"><div class="image" style="background-image: url(<?= esc_url($tileImageUrl); ?>)"></div></div>
+			<?php if($cardLayout === '2-col') : ?>
+			<div class="image-outer">
+				<div class="image<?php if($tileHoverImageUrl !== '') : ?> has-hover-image<?php endif; ?>">
+					<img class="image-default" src="<?= esc_url($tileImageUrl); ?>" alt="<?= esc_attr($tile['image']['alt'] ?? ''); ?>" />
+					<?php if($tileHoverImageUrl !== '') : ?>
+					<img class="image-hover" src="<?= esc_url($tileHoverImageUrl); ?>" alt="<?= esc_attr($tile['image_hover']['alt'] ?? ($tile['image']['alt'] ?? '')); ?>" />
+					<?php endif; ?>
+				</div>
+			</div>
+			<?php else : ?>
+			<div class="image-outer">
+				<div class="image" style="background-image: url(<?= esc_url($tileImageUrl); ?>)"></div>
+			</div>
+			<?php endif; ?>
 			<?php endif; ?>
 			<h4><a href="<?= $tile['link']; ?>"><?= $tile['title']; ?></a></h4>
 			<?php if($tile['excerpt']!='') : ?><h5><?= $tile['excerpt']; ?></h5><?php endif; ?>
