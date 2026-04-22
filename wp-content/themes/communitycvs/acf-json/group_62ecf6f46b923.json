@@ -463,9 +463,16 @@
                 "operator": "==",
                 "value": "menus"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "news"
+            }
         ]
     ],
-    "menu_order": 4,
+    "menu_order": 10,
     "position": "normal",
     "style": "seamless",
     "label_placement": "top",
@@ -488,5 +495,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776845849
+    "modified": 1776873637
 }
