@@ -659,10 +659,10 @@ body.page .site-main {
 .home-carousel.outer .home-carousel-slide-inner.lime-green {
   background-color: #91BC3D;
 }
-.home-carousel.outer .home-carousel-slide-inner.orange-yellow p, .home-carousel.outer .home-carousel-slide-inner.orange-yellow h2, .home-carousel.outer .home-carousel-slide-inner.orange-yellow .home-carousel-button, .home-carousel.outer .home-carousel-slide-inner.lime-green p, .home-carousel.outer .home-carousel-slide-inner.lime-green h2, .home-carousel.outer .home-carousel-slide-inner.lime-green .home-carousel-button {
+.home-carousel.outer .home-carousel-slide-inner.orange-yellow p, .home-carousel.outer .home-carousel-slide-inner.orange-yellow h2, .home-carousel.outer .home-carousel-slide-inner.orange-yellow .home-carousel-button {
   color: #29317B;
 }
-.home-carousel.outer .home-carousel-slide-inner.orange-yellow .home-carousel-button, .home-carousel.outer .home-carousel-slide-inner.lime-green .home-carousel-button {
+.home-carousel.outer .home-carousel-slide-inner.orange-yellow .home-carousel-button {
   border: 1px solid #29317B;
 }
 .home-carousel.outer .home-carousel-slide-inner.lime-green {
