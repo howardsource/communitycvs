@@ -514,19 +514,31 @@ a.download-button {
                 margin-bottom: 12px;
                 background-color: $c_orange-yellow;
             }
-            .submenu-column-image,
+            .submenu-column-image {
+                &.teal-blue { border-bottom-color: $c_teal-blue; }
+                &.olive-green { border-bottom-color: $c_olive-green; }
+                &.dark-blue { border-bottom-color: $c_dark-blue; }
+                &.teal-green { border-bottom-color: $c_teal-green; }
+                &.purple { border-bottom-color: $c_purple; }
+                &.lime-green { border-bottom-color: $c_lime-green; }
+                &.orange-yellow { border-bottom-color: $c_orange-yellow; }
+                &.dark-grey { border-bottom-color: $c_dark-grey; }
+                &.blue-grey { border-bottom-color: $c_blue-grey; }
+                &.light-blue { border-bottom-color: $c_light-blue; }
+                &.mid-grey { border-bottom-color: $c_mid-grey; }
+            }
             .submenu-column-accent-band {
-                &.teal-blue { border-bottom-color: $c_teal-blue; background-color: $c_teal-blue; }
-                &.olive-green { border-bottom-color: $c_olive-green; background-color: $c_olive-green; }
-                &.dark-blue { border-bottom-color: $c_dark-blue; background-color: $c_dark-blue; }
-                &.teal-green { border-bottom-color: $c_teal-green; background-color: $c_teal-green; }
-                &.purple { border-bottom-color: $c_purple; background-color: $c_purple; }
-                &.lime-green { border-bottom-color: $c_lime-green; background-color: $c_lime-green; }
-                &.orange-yellow { border-bottom-color: $c_orange-yellow; background-color: $c_orange-yellow; }
-                &.dark-grey { border-bottom-color: $c_dark-grey; background-color: $c_dark-grey; }
-                &.blue-grey { border-bottom-color: $c_blue-grey; background-color: $c_blue-grey; }
-                &.light-blue { border-bottom-color: $c_light-blue; background-color: $c_light-blue; }
-                &.mid-grey { border-bottom-color: $c_mid-grey; background-color: $c_mid-grey; }
+                &.teal-blue { background-color: $c_teal-blue; }
+                &.olive-green { background-color: $c_olive-green; }
+                &.dark-blue { background-color: $c_dark-blue; }
+                &.teal-green { background-color: $c_teal-green; }
+                &.purple { background-color: $c_purple; }
+                &.lime-green { background-color: $c_lime-green; }
+                &.orange-yellow { background-color: $c_orange-yellow; }
+                &.dark-grey { background-color: $c_dark-grey; }
+                &.blue-grey { background-color: $c_blue-grey; }
+                &.light-blue { background-color: $c_light-blue; }
+                &.mid-grey { background-color: $c_mid-grey; }
             }
             .submenu-column-title {
                 font-size: 1.8rem;
