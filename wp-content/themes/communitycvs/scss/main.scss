@@ -436,14 +436,25 @@ a.download-button {
                 min-width: 0;
             }
             .submenu-column-image {
-                width: 100%;
-                aspect-ratio: 16 / 9;
+                width: min(100%, 185px);
+                aspect-ratio: 185 / 138;
                 border-top-left-radius: 12px;
                 border-top-right-radius: 12px;
                 background-size: cover;
                 background-position: center center;
                 margin-bottom: 12px;
                 border-bottom: 10px solid $c_orange-yellow;
+                &.teal-blue { border-bottom-color: $c_teal-blue; }
+                &.olive-green { border-bottom-color: $c_olive-green; }
+                &.dark-blue { border-bottom-color: $c_dark-blue; }
+                &.teal-green { border-bottom-color: $c_teal-green; }
+                &.purple { border-bottom-color: $c_purple; }
+                &.lime-green { border-bottom-color: $c_lime-green; }
+                &.orange-yellow { border-bottom-color: $c_orange-yellow; }
+                &.dark-grey { border-bottom-color: $c_dark-grey; }
+                &.blue-grey { border-bottom-color: $c_blue-grey; }
+                &.light-blue { border-bottom-color: $c_light-blue; }
+                &.mid-grey { border-bottom-color: $c_mid-grey; }
             }
             .submenu-column-title {
                 font-size: 1.8rem;

@@ -49,9 +49,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php if ($submenuColumns) : ?>
                         <ul class="sub-menu megamenu" style="--megamenu-columns: <?php echo (int) $submenuColumnCount; ?>;">
 							<?php foreach($submenuColumns as $column) : ?>
+							<?php
+							$columnAccentClass = '';
+							if (!empty($column['column_accent'])) {
+								$columnAccentClass = ' ' . sanitize_html_class($column['column_accent']);
+							}
+							?>
 							<li class="submenu-column">
 								<?php if (!empty($column['column_image'])) : ?>
-								<div class="submenu-column-image" style="background-image: url(<?php echo esc_url($column['column_image']['sizes']['half-width']); ?>)"></div>
+								<div class="submenu-column-image<?php echo esc_attr($columnAccentClass); ?>" style="background-image: url(<?php echo esc_url($column['column_image']['sizes']['half-width']); ?>)"></div>
 								<?php endif; ?>
 								<?php if (!empty($column['title_link'])) : ?>
 								<div class="submenu-column-title"><a href="<?php echo esc_url(get_permalink($column['title_link'])); ?>"><?php echo esc_html($column['column_title']); ?></a></div>

@@ -480,14 +480,47 @@ a.download-button:hover {
   min-width: 0;
 }
 .site-header .nav-bottom .main-menu .submenu-column-image {
-  width: 100%;
-  aspect-ratio: 16/9;
+  width: min(100%, 185px);
+  aspect-ratio: 185/138;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   background-size: cover;
   background-position: center center;
   margin-bottom: 12px;
   border-bottom: 10px solid #F9B233;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.teal-blue {
+  border-bottom-color: #17709A;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.olive-green {
+  border-bottom-color: #838132;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.dark-blue {
+  border-bottom-color: #29317B;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.teal-green {
+  border-bottom-color: #10726B;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.purple {
+  border-bottom-color: #972685;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.lime-green {
+  border-bottom-color: #91BC3D;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.orange-yellow {
+  border-bottom-color: #F9B233;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.dark-grey {
+  border-bottom-color: #5C737E;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.blue-grey {
+  border-bottom-color: #859DAA;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.light-blue {
+  border-bottom-color: #F0F5F7;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.mid-grey {
+  border-bottom-color: #708D9B;
 }
 .site-header .nav-bottom .main-menu .submenu-column-title {
   font-size: 1.8rem;
