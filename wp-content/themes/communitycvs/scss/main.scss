@@ -980,6 +980,10 @@ body.page .site-main {
             .link-button {
                 a {
                     text-decoration: none;
+                    &:hover {
+                        border: 1px solid $c_dark-grey;
+                        color: white;
+                    }
                 }
             }
         }
