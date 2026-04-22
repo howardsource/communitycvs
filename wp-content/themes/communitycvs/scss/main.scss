@@ -134,9 +134,9 @@ li {
         transition: all 0.3s ease-in-out;
         text-decoration: none;
         &:hover {
-            
-            color: #fff;
             transform: translateY(-2px);
+            background-color: #5C737E;
+            color: #fff;
         }
     }
 }
@@ -977,6 +977,11 @@ body.page .site-main {
                 color: $c_dark-blue;
                 text-decoration: underline;
             }
+            .link-button {
+                a {
+                    text-decoration: none;
+                }
+            }
         }
     }
     .news-lists {
@@ -1625,7 +1630,7 @@ body.page .site-main {
         h5, .contact, .contact a {
             font-size: 1.6rem;
             line-height: 2.2rem;
-            color: $c_blue-grey;
+            color: $c_dark-grey;
         }
         
         .bio {

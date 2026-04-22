@@ -188,8 +188,9 @@ li {
   text-decoration: none;
 }
 .link-button a:hover {
-  color: #fff;
   transform: translateY(-2px);
+  background-color: #5C737E;
+  color: #fff;
 }
 
 a.download-button {
@@ -1059,6 +1060,9 @@ body.page .site-main {
   color: #29317B;
   text-decoration: underline;
 }
+#modules .columns .inner .link-button a {
+  text-decoration: none;
+}
 #modules .news-lists {
   padding: 36px 0 72px 0;
 }
@@ -1687,7 +1691,7 @@ body.page .site-main {
 #modules .team h5, #modules .team .contact, #modules .team .contact a {
   font-size: 1.6rem;
   line-height: 2.2rem;
-  color: #859DAA;
+  color: #5C737E;
 }
 #modules .team .bio {
   margin-top: 22px;
