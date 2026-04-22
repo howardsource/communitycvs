@@ -132,8 +132,9 @@ li {
         border: 1px solid $c_dark-blue;
         background-color: transparent;
         transition: all 0.3s ease-in-out;
+        text-decoration: none;
         &:hover {
-            background-color: $c_dark-blue;
+            
             color: #fff;
             transform: translateY(-2px);
         }
@@ -1534,13 +1535,13 @@ body.page .site-main {
         .more-link {
             margin-top: 72px;
             text-align: center;
-            font-size: 2.8rem;
-            line-height: 3.4rem;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
             a {
                 text-decoration: none;
                 text-transform: uppercase;
                 color: $c_dark-blue;
-                font-weight: 400;
+                font-weight: 600;
                 padding: 12px 24px;
                 border: 1px solid $c_dark-blue;
                 border-radius: 48px;
