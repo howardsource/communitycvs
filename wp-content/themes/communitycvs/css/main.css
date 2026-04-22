@@ -409,15 +409,29 @@ a.download-button:hover {
 }
 .site-header .nav-bottom .main-menu > li {
   position: relative;
+  margin-bottom: 1rem;
 }
 .site-header .nav-bottom .main-menu > li > a {
   display: inline-block;
+  position: relative;
   text-decoration: none;
   color: #29317B;
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 600;
   padding: 8px 16px 8px 0;
+  transition: color 0.2s ease-in-out;
+}
+.site-header .nav-bottom .main-menu > li > a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 6px;
+  background-color: #29317B;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 .site-header .nav-bottom .main-menu > li > a:after {
   position: absolute;
@@ -426,13 +440,23 @@ a.download-button:hover {
   right: 0;
   width: 8px;
   height: 8px;
-  border-top: 1px solid #29317B;
-  border-right: 1px solid #29317B;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
   transform: rotate(135deg);
   transition: all 0.3s ease-in-out;
 }
 .site-header .nav-bottom .main-menu > li > a:hover:after {
   transform: rotate(-45deg);
+}
+.site-header .nav-bottom .main-menu > li:hover > a,
+.site-header .nav-bottom .main-menu > li:focus-within > a,
+.site-header .nav-bottom .main-menu > li.has-megamenu.is-open > a {
+  color: #859DAA;
+}
+.site-header .nav-bottom .main-menu > li:hover > a:before,
+.site-header .nav-bottom .main-menu > li:focus-within > a:before,
+.site-header .nav-bottom .main-menu > li.has-megamenu.is-open > a:before {
+  opacity: 1;
 }
 .site-header .nav-bottom .main-menu .sub-menu {
   list-style: none;
@@ -443,8 +467,8 @@ a.download-button:hover {
   left: -12px;
   min-width: 220px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 24px;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.35);
   display: none;
   z-index: 1001;
 }
@@ -467,14 +491,14 @@ a.download-button:hover {
   left: 0;
   right: auto;
   transform: none;
-  padding: 24px;
+  padding: 36px;
   display: none;
   width: calc(var(--megamenu-columns, 1) * 273px);
   max-width: min(923px, 100%);
   grid-template-columns: repeat(var(--megamenu-columns, 1), minmax(0, 185px));
   gap: 36px;
   justify-content: space-between;
-  border-radius: 12px;
+  border-radius: 24px;
 }
 .site-header .nav-bottom .main-menu .submenu-column {
   min-width: 0;
@@ -489,38 +513,66 @@ a.download-button:hover {
   margin-bottom: 12px;
   border-bottom: 10px solid #F9B233;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.teal-blue {
+.site-header .nav-bottom .main-menu .submenu-column-accent-band {
+  width: min(100%, 185px);
+  height: 10px;
+  margin-bottom: 12px;
+  background-color: #F9B233;
+}
+.site-header .nav-bottom .main-menu .submenu-column-image.teal-blue,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.teal-blue {
   border-bottom-color: #17709A;
+  background-color: #17709A;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.olive-green {
+.site-header .nav-bottom .main-menu .submenu-column-image.olive-green,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.olive-green {
   border-bottom-color: #838132;
+  background-color: #838132;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.dark-blue {
+.site-header .nav-bottom .main-menu .submenu-column-image.dark-blue,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.dark-blue {
   border-bottom-color: #29317B;
+  background-color: #29317B;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.teal-green {
+.site-header .nav-bottom .main-menu .submenu-column-image.teal-green,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.teal-green {
   border-bottom-color: #10726B;
+  background-color: #10726B;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.purple {
+.site-header .nav-bottom .main-menu .submenu-column-image.purple,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.purple {
   border-bottom-color: #972685;
+  background-color: #972685;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.lime-green {
+.site-header .nav-bottom .main-menu .submenu-column-image.lime-green,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.lime-green {
   border-bottom-color: #91BC3D;
+  background-color: #91BC3D;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.orange-yellow {
+.site-header .nav-bottom .main-menu .submenu-column-image.orange-yellow,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.orange-yellow {
   border-bottom-color: #F9B233;
+  background-color: #F9B233;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.dark-grey {
+.site-header .nav-bottom .main-menu .submenu-column-image.dark-grey,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.dark-grey {
   border-bottom-color: #5C737E;
+  background-color: #5C737E;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.blue-grey {
+.site-header .nav-bottom .main-menu .submenu-column-image.blue-grey,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.blue-grey {
   border-bottom-color: #859DAA;
+  background-color: #859DAA;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.light-blue {
+.site-header .nav-bottom .main-menu .submenu-column-image.light-blue,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.light-blue {
   border-bottom-color: #F0F5F7;
+  background-color: #F0F5F7;
 }
-.site-header .nav-bottom .main-menu .submenu-column-image.mid-grey {
+.site-header .nav-bottom .main-menu .submenu-column-image.mid-grey,
+.site-header .nav-bottom .main-menu .submenu-column-accent-band.mid-grey {
   border-bottom-color: #708D9B;
+  background-color: #708D9B;
 }
 .site-header .nav-bottom .main-menu .submenu-column-title {
   font-size: 1.8rem;
@@ -1376,7 +1428,8 @@ body.page .site-main {
   text-align: center;
 }
 #modules .tiles.card-type-image.card-layout-2-col .module-title h2 {
-  margin: 0;
+  font-size: 6.8rem;
+  margin: 0 0 2rem 0;
 }
 #modules .tiles.card-type-image.card-layout-2-col .tile-group {
   grid-template-columns: repeat(2, minmax(0, 1fr));

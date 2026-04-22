@@ -58,6 +58,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<li class="submenu-column">
 								<?php if (!empty($column['column_image'])) : ?>
 								<div class="submenu-column-image<?php echo esc_attr($columnAccentClass); ?>" style="background-image: url(<?php echo esc_url($column['column_image']['sizes']['half-width']); ?>)"></div>
+								<?php else : ?>
+								<div class="submenu-column-accent-band<?php echo esc_attr($columnAccentClass); ?>"></div>
 								<?php endif; ?>
 								<?php if (!empty($column['title_link'])) : ?>
 								<div class="submenu-column-title"><a href="<?php echo esc_url(get_permalink($column['title_link'])); ?>"><?php echo esc_html($column['column_title']); ?></a></div>

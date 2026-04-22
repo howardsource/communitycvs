@@ -61,12 +61,12 @@ function positionMegamenu(menuItem) {
     const columns = Math.max(1, parseInt(columnsRaw, 10) || 1);
 
     const maxWidth = 923;
-    const minWidth = 273;
     const paddingX = 24 * 2;
     const columnMax = 185;
     const gap = 36;
 
     const contentWidth = paddingX + (columns * columnMax) + ((columns - 1) * gap);
+    const minWidth = columns === 1 ? contentWidth : 273;
     const desiredWidth = columns >= 4 ? maxWidth : Math.min(Math.max(minWidth, contentWidth), maxWidth);
     const offsetLeft = linkRect.left - navRect.left;
 
