@@ -403,6 +403,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_69e883e5ff50a": {
+                    "key": "layout_69e883e5ff50a",
+                    "name": "illustrated_link_tiles",
+                    "label": "Illustrated Link Tiles",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69e883eeff50c",
+                            "label": "Tiles",
+                            "name": "tiles",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_69e88391d548c"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -456,5 +488,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776779330
+    "modified": 1776845849
 }

@@ -312,3 +312,16 @@ document.addEventListener('click', (event) => {
 
     readMoreLink.click();
 });
+
+document.addEventListener('click', (event) => {
+    const tile = event.target.closest('.illustrated-link-tiles .tile');
+    if (!tile) return;
+
+    // Keep default behaviour when the click is already on a link/button/control.
+    if (event.target.closest('a, button, input, select, textarea, label')) return;
+
+    const tileLink = tile.querySelector('.link-button a');
+    if (!tileLink) return;
+
+    tileLink.click();
+});

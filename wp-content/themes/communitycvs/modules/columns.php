@@ -1,5 +1,7 @@
 <?php 
 	$class = '';
+	$leftImageContainClass = !empty($module['left_image_contain']) ? ' left_image_contain' : '';
+	$rightImageContainClass = !empty($module['right_image_contain']) ? ' right_image_contain' : '';
 	if($module['cols_type']=='two-columns') : 
 		$class = $module['column_configuration'];
 	endif;
@@ -18,12 +20,12 @@
 	<?php else : ?>
 	<div class="inner column-group <?= $module['cols_type']; ?>">
 		<?php if($module['column_configuration']=='image-text') : ?>
-		<div class="column image-column reveal" style="background-image: url(<?php echo $module['left_column_image']['sizes']['half-width']; ?>);"></div>
+		<div class="column image-column reveal<?= $leftImageContainClass; ?>" style="background-image: url(<?php echo $module['left_column_image']['sizes']['half-width']; ?>);"></div>
 		<?php else : ?>
 		<div class="column text-column reveal"><div class="text"><?php echo $module['left_column']; ?></div></div>
 		<?php endif; ?>
 		<?php if($module['column_configuration']=='text-image') : ?>
-		<div class="column image-column reveal" style="background-image: url(<?php echo $module['right_column_image']['sizes']['half-width']; ?>);"></div>
+		<div class="column image-column reveal<?= $rightImageContainClass; ?>" style="background-image: url(<?php echo $module['right_column_image']['sizes']['half-width']; ?>);"></div>
 		<?php else : ?>	
 		<div class="column text-column reveal"><div class="text"><?php echo $module['right_column']; ?></div></div>		
 		<?php endif; ?>
