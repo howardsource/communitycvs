@@ -591,6 +591,87 @@ a.download-button {
     padding-top: 148px;
 }
 
+body.contact-modal-open {
+    overflow: hidden;
+}
+
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.contact-modal[hidden] {
+    display: none;
+}
+
+.contact-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba($c_blue-grey, 0.85);
+}
+
+.contact-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 630px);
+    max-width: 630px;
+    min-height: 486px;
+    background: $c_dark-blue;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 48px;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-modal__content {
+    width: 100%;
+    max-width: 420px;
+    h3 {
+        margin: 0 0 32px 0;
+        color: $c_lime-green;
+        font-size: 3.6rem;
+        line-height: 4.2rem;
+    }
+    p {
+        margin: 0 0 24px 0;
+        color: #fff;
+        font-size: 2rem;
+        line-height: 2.8rem;
+    }
+    a {
+        color: #fff;
+    }
+    strong {
+        font-weight: 600;
+    }
+}
+
+.contact-modal__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: $c_dark-blue;
+    font-size: 2.6rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 body.page .site-main {
     background-color: $c_light-blue;
 }

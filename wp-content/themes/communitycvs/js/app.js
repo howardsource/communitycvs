@@ -443,3 +443,51 @@ if (document.readyState === 'loading') {
 } else {
     initSingleNewsRawEmbeds();
 }
+
+function initContactModal() {
+    const modal = document.getElementById('contact-modal');
+    if (!modal) return;
+
+    const openTriggers = document.querySelectorAll('[data-contact-modal-open]');
+    if (!openTriggers.length) return;
+
+    const closeTriggers = modal.querySelectorAll('[data-contact-modal-close]');
+    const closeButton = modal.querySelector('.contact-modal__close');
+    let lastFocusedElement = null;
+
+    const openModal = (event) => {
+        event.preventDefault();
+        lastFocusedElement = event.currentTarget;
+        modal.hidden = false;
+        document.body.classList.add('contact-modal-open');
+        if (closeButton) closeButton.focus();
+    };
+
+    const closeModal = () => {
+        modal.hidden = true;
+        document.body.classList.remove('contact-modal-open');
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    };
+
+    openTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', openModal);
+    });
+
+    closeTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || modal.hidden) return;
+        event.preventDefault();
+        closeModal();
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactModal);
+} else {
+    initContactModal();
+}

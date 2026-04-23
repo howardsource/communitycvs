@@ -23,7 +23,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php $quickLinks = get_field('quick_links', 'options'); ?>
 					<?php if ($quickLinks) : ?>
                     <?php foreach($quickLinks as $link) : ?>
-                    <li><a href="<?php echo esc_url( $link['link'] ); ?>"><?php echo esc_html($link['title']); ?></a></li>
+					<?php
+					$linkTitle = isset($link['title']) ? trim((string) $link['title']) : '';
+					$isContactModalLink = strtolower($linkTitle) === 'contact us';
+					?>
+                    <li>
+						<?php if ($isContactModalLink) : ?>
+						<a
+							href="#"
+							class="js-contact-modal-open"
+							data-contact-modal-open="true"
+							aria-haspopup="dialog"
+							aria-controls="contact-modal"
+						><?php echo esc_html($linkTitle); ?></a>
+						<?php else : ?>
+						<a href="<?php echo esc_url($link['link']); ?>"><?php echo esc_html($linkTitle); ?></a>
+						<?php endif; ?>
+					</li>
                     <?php endforeach; ?>
 					<?php endif; ?>
                 </ul>
@@ -33,7 +49,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<li class="social-linkedin"><a href="#" aria-label="LinkedIn">LI</a></li>
 					<li class="social-x"><a href="#" aria-label="X">X</a></li>
                 </ul>
-                <div class="contact-button"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact Us</a></div>
+                <div class="contact-button">
+					<a
+						href="#"
+						class="js-contact-modal-open"
+						data-contact-modal-open="true"
+						aria-haspopup="dialog"
+						aria-controls="contact-modal"
+					>Contact Us</a>
+				</div>
             </div>
 
             <!-- Bottom menu section: main dropdown menus -->
@@ -88,4 +112,16 @@ if ( ! defined( 'ABSPATH' ) ) {
         </nav>
     </div>
 </header>
+<div class="contact-modal" id="contact-modal" hidden>
+	<div class="contact-modal__backdrop" data-contact-modal-close></div>
+	<div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+		<button type="button" class="contact-modal__close" aria-label="Close contact modal" data-contact-modal-close>&times;</button>
+		<div class="contact-modal__content">
+			<h3 id="contact-modal-title">Get in Touch</h3>
+			<p>Email us<br><a href="mailto:info@communitycvs.org.uk">info@communitycvs.org.uk</a></p>
+			<p>Telephone<br><strong>01254 583957</strong></p>
+			<p>Visit Us:<br>[address to be added by me!]</p>
+		</div>
+	</div>
+</div>
 <main id="main" class="site-main">
