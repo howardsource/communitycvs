@@ -484,7 +484,7 @@ a.download-button {
                 > .sub-menu.megamenu {
                     left: 0;
                     right: auto;
-                    transform: none;
+                    transform: translateX(-36px);
                     padding: 36px;
                     display: none;
                     width: calc(var(--megamenu-columns, 1) * 273px);
@@ -506,11 +506,11 @@ a.download-button {
                 background-size: cover;
                 background-position: center center;
                 margin-bottom: 12px;
-                border-bottom: 10px solid $c_orange-yellow;
+                border-bottom: 6px solid $c_orange-yellow;
             }
             .submenu-column-accent-band {
                 width: min(100%, 185px);
-                height: 10px;
+                height: 6px;
                 margin-bottom: 12px;
                 background-color: $c_orange-yellow;
             }
@@ -1410,7 +1410,7 @@ body.page .site-main {
         }
     }
     .illustrated-quote {
-        padding: 72px 0;
+        padding: 12px 0 72px 0;
         .illustrated-quote-layout {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1841,6 +1841,7 @@ body.page .site-main {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 36px;
+            align-items: start;
         }
         .team-member {
             background-color: #fff;

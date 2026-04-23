@@ -530,7 +530,7 @@ a.download-button:hover {
 .site-header .nav-bottom .main-menu > li.has-megamenu > .sub-menu.megamenu {
   left: 0;
   right: auto;
-  transform: none;
+  transform: translateX(-36px);
   padding: 36px;
   display: none;
   width: calc(var(--megamenu-columns, 1) * 273px);
@@ -551,11 +551,11 @@ a.download-button:hover {
   background-size: cover;
   background-position: center center;
   margin-bottom: 12px;
-  border-bottom: 10px solid #F9B233;
+  border-bottom: 6px solid #F9B233;
 }
 .site-header .nav-bottom .main-menu .submenu-column-accent-band {
   width: min(100%, 185px);
-  height: 10px;
+  height: 6px;
   margin-bottom: 12px;
   background-color: #F9B233;
 }
@@ -1487,7 +1487,7 @@ body.page .site-main {
   background-position: center center;
 }
 #modules .illustrated-quote {
-  padding: 72px 0;
+  padding: 12px 0 72px 0;
 }
 #modules .illustrated-quote .illustrated-quote-layout {
   display: grid;
@@ -1907,6 +1907,7 @@ body.page .site-main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 36px;
+  align-items: start;
 }
 #modules .team .team-member {
   background-color: #fff;
