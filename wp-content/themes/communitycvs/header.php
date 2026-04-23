@@ -118,9 +118,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<button type="button" class="contact-modal__close" aria-label="Close contact modal" data-contact-modal-close>&times;</button>
 		<div class="contact-modal__content">
 			<h3 id="contact-modal-title">Get in Touch</h3>
-			<p>Email us<br><a href="mailto:info@communitycvs.org.uk">info@communitycvs.org.uk</a></p>
+			<p><a href="mailto:info@communitycvs.org.uk">Email us</a></p>
 			<p>Telephone<br><strong>01254 583957</strong></p>
-			<p>Visit Us:<br>[address to be added by me!]</p>
+			<p>Visit Us:<br><span class="small">We're based at the Boulevard Centre (45 Railway Road) and 
+Community Hub (35 Railway Road) in Blackburn.</span></p>
 		</div>
 	</div>
 </div>

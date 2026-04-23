@@ -623,17 +623,18 @@ body.contact-modal-open {
     min-height: 486px;
     background: $c_dark-blue;
     border-radius: 24px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 72px 48px;
+    padding: 72px 4px;
     color: #fff;
     text-align: center;
 }
 
 .contact-modal__content {
     width: 100%;
-    max-width: 420px;
+    max-width: 540px;
     h3 {
         margin: 0 0 32px 0;
         color: $c_lime-green;
@@ -642,15 +643,23 @@ body.contact-modal-open {
     }
     p {
         margin: 0 0 24px 0;
-        color: #fff;
-        font-size: 2rem;
-        line-height: 2.8rem;
+        color: $c_light-grey;
+        font-size: 3.6rem;
+        line-height: 4.8rem;
+        .small {
+            display: block;
+            margin-top: 8px;
+            font-size: 1.8rem;
+            line-height: 2.6rem;
+        }
     }
     a {
         color: #fff;
     }
     strong {
+        color: white;
         font-weight: 600;
+        font-size: 3.6rem;
     }
 }
 
@@ -664,12 +673,29 @@ body.contact-modal-open {
     border-radius: 50%;
     background: #fff;
     color: $c_dark-blue;
-    font-size: 2.6rem;
-    line-height: 1;
+    font-size: 0;
+    line-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: $c_blue-grey;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
 }
 
 body.page .site-main {

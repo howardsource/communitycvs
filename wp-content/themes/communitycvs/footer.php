@@ -6,7 +6,13 @@
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-            <a class="footer-contact-button" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact Us</a>
+            <a
+                class="footer-contact-button js-contact-modal-open"
+                href="#"
+                data-contact-modal-open="true"
+                aria-haspopup="dialog"
+                aria-controls="contact-modal"
+            >Contact Us</a>
             <ul class="footer-menu">
                 <li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">About Us</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/grants/' ) ); ?>">Grants</a></li>
