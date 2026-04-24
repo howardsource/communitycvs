@@ -491,3 +491,29 @@ if (document.readyState === 'loading') {
 } else {
     initContactModal();
 }
+
+function initMobileMenuToggle() {
+    const header = document.querySelector('.site-header');
+    const button = document.querySelector('.js-nav-menu-toggle');
+    if (!header || !button) return;
+
+    const closeMenu = () => {
+        header.classList.remove('menu-open');
+        button.setAttribute('aria-expanded', 'false');
+    };
+
+    button.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('menu-open');
+        button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) closeMenu();
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenuToggle);
+} else {
+    initMobileMenuToggle();
+}

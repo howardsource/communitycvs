@@ -58,11 +58,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 						aria-controls="contact-modal"
 					>Contact Us</a>
 				</div>
+                <button
+                    type="button"
+                    class="nav-menu-toggle js-nav-menu-toggle"
+                    aria-expanded="false"
+                    aria-controls="main-menu-root"
+                    aria-label="Toggle menu"
+                >
+                    <span class="nav-menu-toggle-line" aria-hidden="true"></span>
+                    <span class="sr-only">Menu</span>
+                </button>
             </div>
 
             <!-- Bottom menu section: main dropdown menus -->
             <div class="nav-bottom">
-                <ul class="main-menu">
+                <ul class="main-menu" id="main-menu-root">
 					<?php $mainMenu = get_field('main_menu', 'options'); ?>
 					<?php if ($mainMenu) : ?>
                     <?php foreach($mainMenu as $link) : ?>
