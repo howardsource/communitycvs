@@ -1042,6 +1042,9 @@ body.page .site-main {
             pointer-events: none;
             z-index: 1;
         }
+        &::after {
+            right: 0;
+        }
         .inner {
             z-index: 2;
             height: 100%;
@@ -1729,6 +1732,33 @@ body.page .site-main {
         }
         &.card-type-image {
             &.card-layout-2-col {
+                .tiles-composite {
+                    position: relative;
+                    z-index: 1;
+                    overflow: visible;
+                    filter: drop-shadow(0px 6px 9px rgba(0, 0, 0, 0.15));
+                    &::before,
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        width: calc(50vw + 220px);
+                        background-image: url('../images/banner-flower-large.png');
+                        background-repeat: no-repeat;
+                        background-size: 420px auto;
+                        pointer-events: none;
+                        z-index: -1;
+                    }
+                    &::before {
+                        right: calc(100% - 140px);
+                        background-position: right top;
+                    }
+                    &::after {
+                        left: calc(100% - 140px);
+                        background-position: left bottom;
+                    }
+                }
                 .module-title {
                     background-color: #fff;
                     border-radius: 12px 12px 0 0;

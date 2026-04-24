@@ -2,6 +2,7 @@
 <?php
 $cardType = isset($module['card_type']) ? $module['card_type'] : 'image';
 $cardLayout = isset($module['card_layout']) ? $module['card_layout'] : '3-col';
+$useCompositeShadow = ($cardType === 'image' && $cardLayout === '2-col');
 $tileImageSize = ($cardLayout === '2-col') ? 'two-col' : 'half-width';
 $tileAccentMap = array(
 	'orange-yellow' => '#F9B233',
@@ -14,6 +15,9 @@ $tileAccentMap = array(
 );
 ?>
 <section class="outer module tiles <?= $module['background_colour']; ?> card-layout-<?= $cardLayout; ?> <?= $module['tile_group_type']; ?> card-type-<?= $cardType; ?>">
+	<?php if ($useCompositeShadow) : ?>
+	<div class="inner tiles-composite">
+	<?php endif; ?>
 	<?php if($module['display_title']) : ?>
 	<div class="inner module-title"><h2><?= $module['title']; ?></h2></div>
 	<?php endif; ?>
@@ -61,6 +65,9 @@ $tileAccentMap = array(
 		</div>
 		<?php endforeach; ?>
 	</div>
+	<?php if ($useCompositeShadow) : ?>
+	</div>
+	<?php endif; ?>
 	<?php if($module['more_link']!='') : ?>
 		<div class="more-link inner"><a class="link-button" href="<?= $module['more_link']; ?>"><?= $module['more_link_text']; ?></a></div>
 	<?php endif; ?>
