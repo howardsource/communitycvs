@@ -223,7 +223,7 @@ a.download-button {
 }
 
 .site-header {
-    position: fixed;
+    //position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -231,7 +231,7 @@ a.download-button {
     height: 148px;
     z-index: 1000;
     &.outer {
-        position: fixed;
+        //position: fixed;
     }
     .inner {
         height: 100%;
@@ -754,7 +754,7 @@ a.download-button {
 }
 
 .site-main {
-    padding-top: 148px;
+    //padding-top: 148px;
 }
 
 body.contact-modal-open {
