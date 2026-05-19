@@ -49,9 +49,7 @@
             "allow_in_bindings": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "placeholder": ""
         },
         {
             "key": "field_67110fadb5bb1",
@@ -199,9 +197,7 @@
             "allow_in_bindings": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "placeholder": ""
         }
     ],
     "location": [
@@ -222,7 +218,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "display_title": "",
-    "modified": 1779193374,
-    "local_file": "\/Users\/howardmarsden\/Sites\/Development\/communitycvs\/wp-content\/themes\/communitycvs\/acf-json\/group_67110f3242526.json"
+    "modified": 1759415221
 }
