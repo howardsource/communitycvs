@@ -85,35 +85,6 @@ function communitycvs_acf_json_load_point( $paths ) {
     return $paths;
 }
 
-if ( defined( 'COMMUNITYCVS_ACF_JSON_AUTO_IMPORT' ) && COMMUNITYCVS_ACF_JSON_AUTO_IMPORT ) {
-    add_action( 'acf/init', 'communitycvs_acf_json_auto_import', 20 );
-}
-function communitycvs_acf_json_auto_import() {
-    if ( ! is_admin() ) {
-        return;
-    }
-    if ( ! current_user_can( 'manage_options' ) ) {
-        return;
-    }
-    if ( ! function_exists( 'acf_get_local_field_groups' ) || ! function_exists( 'acf_get_local_fields' ) || ! function_exists( 'acf_import_field_group' ) ) {
-        return;
-    }
-
-    $groups = acf_get_local_field_groups();
-    if ( empty( $groups ) || ! is_array( $groups ) ) {
-        return;
-    }
-
-    foreach ( $groups as $group ) {
-        if ( empty( $group['key'] ) ) {
-            continue;
-        }
-        $fields = function_exists( 'acf_get_local_fields' ) ? acf_get_local_fields( $group['key'] ) : array();
-        $group['fields'] = $fields;
-        acf_import_field_group( $group );
-    }
-}
-
 function communitycvs_news_archive_posts_per_page( $query ) {
 	if ( is_admin() || ! $query->is_main_query() ) {
 		return;
