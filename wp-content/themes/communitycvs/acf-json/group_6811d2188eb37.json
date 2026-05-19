@@ -140,6 +140,28 @@
                     "parent_repeater": "field_6811d2189483f"
                 },
                 {
+                    "key": "field_6a0c63cb5069f",
+                    "label": "Telephone",
+                    "name": "telephone",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6811d2189483f"
+                },
+                {
                     "key": "field_6811d24894842",
                     "label": "Bio",
                     "name": "bio",
@@ -183,5 +205,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773749032
+    "modified": 1779196882
 }
