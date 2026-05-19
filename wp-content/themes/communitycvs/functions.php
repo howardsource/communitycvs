@@ -62,9 +62,7 @@ add_action( 'wp_enqueue_scripts', 'communitycvs_scripts' );
 /**
  * ACF JSON Save Point
  */
-if ( defined( 'COMMUNITYCVS_ACF_JSON_ENABLED' ) && COMMUNITYCVS_ACF_JSON_ENABLED ) {
-	add_filter('acf/settings/save_json', 'communitycvs_acf_json_save_point');
-}
+add_filter('acf/settings/save_json', 'communitycvs_acf_json_save_point');
 function communitycvs_acf_json_save_point( $path ) {
     // update path
     $path = get_template_directory() . '/acf-json';
@@ -74,9 +72,7 @@ function communitycvs_acf_json_save_point( $path ) {
 /**
  * ACF JSON Load Point
  */
-if ( defined( 'COMMUNITYCVS_ACF_JSON_ENABLED' ) && COMMUNITYCVS_ACF_JSON_ENABLED ) {
-	add_filter('acf/settings/load_json', 'communitycvs_acf_json_load_point');
-}
+add_filter('acf/settings/load_json', 'communitycvs_acf_json_load_point');
 function communitycvs_acf_json_load_point( $paths ) {
     // remove original path (optional)
     unset($paths[0]);
@@ -89,234 +85,80 @@ function communitycvs_acf_json_load_point( $paths ) {
     return $paths;
 }
 
-add_action( 'admin_init', 'communitycvs_acf_cleanup_duplicates', 5 );
-function communitycvs_acf_cleanup_duplicates() {
-    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
-        return;
-    }
-    if ( empty( $_GET['communitycvs_acf_cleanup'] ) ) {
-        return;
-    }
-    if ( get_option( 'communitycvs_acf_cleanup_done' ) ) {
-        return;
-    }
+add_action( 'admin_init', 'communitycvs_acf_emergency_restore_from_json', 5 );
+function communitycvs_acf_emergency_restore_from_json() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	if ( empty( $_GET['communitycvs_acf_restore'] ) || empty( $_GET['confirm'] ) || (string) $_GET['confirm'] !== '1' ) {
+		return;
+	}
 
-    $host = wp_parse_url( home_url(), PHP_URL_HOST );
-    if ( $host !== 'howardair.local' ) {
-        return;
-    }
-    if ( ! post_type_exists( 'acf-field-group' ) || ! post_type_exists( 'acf-field' ) ) {
-        return;
-    }
+	$host = wp_parse_url( home_url(), PHP_URL_HOST );
+	if ( $host !== 'howardair.local' ) {
+		return;
+	}
 
-    $groups = get_posts(
-        array(
-            'post_type'      => 'acf-field-group',
-            'post_status'    => array( 'publish', 'acf-disabled' ),
-            'posts_per_page' => -1,
-            'fields'         => 'ids',
-        )
-    );
+	$jsonFiles = glob( get_template_directory() . '/acf-json/group_*.json' );
+	if ( empty( $jsonFiles ) || ! is_array( $jsonFiles ) ) {
+		update_option( 'communitycvs_acf_restore_result', array( 'error' => 'No ACF JSON group_*.json files found in theme.' ), false );
+		wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_restore', 'confirm' ) ) );
+		exit;
+	}
 
-    $groupIdsByKey = array();
-    foreach ( $groups as $groupId ) {
-        $key = (string) get_post_field( 'post_name', $groupId );
-        $key = $key !== '' ? $key : (string) $groupId;
-        if ( ! isset( $groupIdsByKey[ $key ] ) ) {
-            $groupIdsByKey[ $key ] = array();
-        }
-        $groupIdsByKey[ $key ][] = (int) $groupId;
-    }
+	if ( ! function_exists( 'acf_get_local_field_groups' ) || ! function_exists( 'acf_get_local_fields' ) || ! function_exists( 'acf_import_field_group' ) ) {
+		update_option( 'communitycvs_acf_restore_result', array( 'error' => 'ACF import functions not available.' ), false );
+		wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_restore', 'confirm' ) ) );
+		exit;
+	}
 
-    $deleteGroupIds = array();
-    foreach ( $groupIdsByKey as $ids ) {
-        if ( count( $ids ) <= 1 ) {
-            continue;
-        }
-        rsort( $ids, SORT_NUMERIC );
-        $deleteGroupIds = array_merge( $deleteGroupIds, array_slice( $ids, 1 ) );
-    }
+	$localGroups = acf_get_local_field_groups();
+	if ( empty( $localGroups ) || ! is_array( $localGroups ) ) {
+		update_option( 'communitycvs_acf_restore_result', array( 'error' => 'No local ACF field groups detected from JSON.' ), false );
+		wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_restore', 'confirm' ) ) );
+		exit;
+	}
 
-    if ( empty( $deleteGroupIds ) ) {
-        update_option( 'communitycvs_acf_cleanup_done', time(), true );
-        update_option( 'communitycvs_acf_cleanup_result', array( 'groupsDeleted' => 0, 'fieldsDeleted' => 0 ), false );
-        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_cleanup' ) ) );
-        exit;
-    }
+	$importedGroups = 0;
+	foreach ( $localGroups as $group ) {
+		if ( empty( $group['key'] ) ) {
+			continue;
+		}
+		$group['fields'] = acf_get_local_fields( $group['key'] );
+		acf_import_field_group( $group );
+		$importedGroups++;
+	}
 
-    global $wpdb;
-    $fieldRows = $wpdb->get_results( "SELECT ID, post_parent FROM {$wpdb->posts} WHERE post_type = 'acf-field' AND post_status IN ('publish','acf-disabled')", ARRAY_A );
-    $childrenMap = array();
-    foreach ( $fieldRows as $row ) {
-        $parentId = (int) $row['post_parent'];
-        $fieldId = (int) $row['ID'];
-        if ( $parentId <= 0 || $fieldId <= 0 ) {
-            continue;
-        }
-        if ( ! isset( $childrenMap[ $parentId ] ) ) {
-            $childrenMap[ $parentId ] = array();
-        }
-        $childrenMap[ $parentId ][] = $fieldId;
-    }
-
-    $fieldsDeleted = 0;
-    $groupsDeleted = 0;
-
-    $deleteFieldTree = null;
-    $deleteFieldTree = function ( $parentId ) use ( &$deleteFieldTree, &$childrenMap, &$fieldsDeleted ) {
-        if ( empty( $childrenMap[ $parentId ] ) ) {
-            return;
-        }
-        foreach ( $childrenMap[ $parentId ] as $childId ) {
-            $deleteFieldTree( $childId );
-            wp_delete_post( $childId, true );
-            $fieldsDeleted++;
-        }
-        unset( $childrenMap[ $parentId ] );
-    };
-
-    foreach ( $deleteGroupIds as $groupId ) {
-        $deleteFieldTree( (int) $groupId );
-        wp_delete_post( (int) $groupId, true );
-        $groupsDeleted++;
-    }
-
-    update_option( 'communitycvs_acf_cleanup_done', time(), true );
-    update_option( 'communitycvs_acf_cleanup_result', array( 'groupsDeleted' => $groupsDeleted, 'fieldsDeleted' => $fieldsDeleted ), false );
-
-    wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_cleanup' ) ) );
-    exit;
+	update_option( 'communitycvs_acf_restore_result', array( 'importedGroups' => $importedGroups ), false );
+	wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_restore', 'confirm' ) ) );
+	exit;
 }
 
-add_action( 'admin_notices', 'communitycvs_acf_cleanup_notice' );
-function communitycvs_acf_cleanup_notice() {
-    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
-        return;
-    }
-    $result = get_option( 'communitycvs_acf_cleanup_result' );
-    if ( empty( $result ) || ! is_array( $result ) ) {
-        return;
-    }
-    delete_option( 'communitycvs_acf_cleanup_result' );
+add_action( 'admin_notices', 'communitycvs_acf_emergency_restore_notice' );
+function communitycvs_acf_emergency_restore_notice() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$result = get_option( 'communitycvs_acf_restore_result' );
+	if ( empty( $result ) || ! is_array( $result ) ) {
+		return;
+	}
+	delete_option( 'communitycvs_acf_restore_result' );
 
-    $groupsDeleted = isset( $result['groupsDeleted'] ) ? (int) $result['groupsDeleted'] : 0;
-    $fieldsDeleted = isset( $result['fieldsDeleted'] ) ? (int) $result['fieldsDeleted'] : 0;
+	if ( ! empty( $result['error'] ) ) {
+		echo '<div class="notice notice-error"><p>' . esc_html( (string) $result['error'] ) . '</p></div>';
+		return;
+	}
 
-    echo '<div class="notice notice-success"><p>' .
-        esc_html(
-            sprintf(
-                'ACF cleanup complete: deleted %d duplicate field groups and %d fields.',
-                $groupsDeleted,
-                $fieldsDeleted
-            )
-        ) .
-        '</p></div>';
-}
-
-add_action( 'admin_init', 'communitycvs_acf_rebuild_from_json', 6 );
-function communitycvs_acf_rebuild_from_json() {
-    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
-        return;
-    }
-    if ( empty( $_GET['communitycvs_acf_rebuild'] ) ) {
-        return;
-    }
-
-    $host = wp_parse_url( home_url(), PHP_URL_HOST );
-    if ( $host !== 'howardair.local' ) {
-        return;
-    }
-
-    if ( get_option( 'communitycvs_acf_rebuild_done' ) ) {
-        return;
-    }
-
-    if ( ! function_exists( 'acf_get_local_field_groups' ) || ! function_exists( 'acf_get_local_fields' ) || ! function_exists( 'acf_import_field_group' ) ) {
-        update_option( 'communitycvs_acf_rebuild_result', array( 'error' => 'ACF import functions not available.' ), false );
-        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
-        exit;
-    }
-
-    if ( empty( $_GET['confirm'] ) || (string) $_GET['confirm'] !== '1' ) {
-        update_option( 'communitycvs_acf_rebuild_result', array( 'error' => 'Missing confirm=1.' ), false );
-        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
-        exit;
-    }
-
-    if ( ! post_type_exists( 'acf-field-group' ) || ! post_type_exists( 'acf-field' ) ) {
-        update_option( 'communitycvs_acf_rebuild_result', array( 'error' => 'ACF post types not registered.' ), false );
-        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
-        exit;
-    }
-
-    $fields = get_posts(
-        array(
-            'post_type'      => 'acf-field',
-            'post_status'    => array( 'publish', 'acf-disabled' ),
-            'posts_per_page' => -1,
-            'fields'         => 'ids',
-        )
-    );
-    foreach ( $fields as $fieldId ) {
-        wp_delete_post( (int) $fieldId, true );
-    }
-
-    $groups = get_posts(
-        array(
-            'post_type'      => 'acf-field-group',
-            'post_status'    => array( 'publish', 'acf-disabled' ),
-            'posts_per_page' => -1,
-            'fields'         => 'ids',
-        )
-    );
-    foreach ( $groups as $groupId ) {
-        wp_delete_post( (int) $groupId, true );
-    }
-
-    $importedGroups = 0;
-    $localGroups = acf_get_local_field_groups();
-    if ( ! empty( $localGroups ) && is_array( $localGroups ) ) {
-        foreach ( $localGroups as $group ) {
-            if ( empty( $group['key'] ) ) {
-                continue;
-            }
-            $group['fields'] = acf_get_local_fields( $group['key'] );
-            acf_import_field_group( $group );
-            $importedGroups++;
-        }
-    }
-
-    update_option( 'communitycvs_acf_rebuild_done', time(), true );
-    update_option( 'communitycvs_acf_rebuild_result', array( 'importedGroups' => $importedGroups ), false );
-    wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
-    exit;
-}
-
-add_action( 'admin_notices', 'communitycvs_acf_rebuild_notice' );
-function communitycvs_acf_rebuild_notice() {
-    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
-        return;
-    }
-    $result = get_option( 'communitycvs_acf_rebuild_result' );
-    if ( empty( $result ) || ! is_array( $result ) ) {
-        return;
-    }
-    delete_option( 'communitycvs_acf_rebuild_result' );
-
-    if ( ! empty( $result['error'] ) ) {
-        echo '<div class="notice notice-error"><p>' . esc_html( (string) $result['error'] ) . '</p></div>';
-        return;
-    }
-
-    $importedGroups = isset( $result['importedGroups'] ) ? (int) $result['importedGroups'] : 0;
-    echo '<div class="notice notice-success"><p>' .
-        esc_html(
-            sprintf(
-                'ACF rebuild complete: imported %d field groups from local JSON.',
-                $importedGroups
-            )
-        ) .
-        '</p></div>';
+	$importedGroups = isset( $result['importedGroups'] ) ? (int) $result['importedGroups'] : 0;
+	echo '<div class="notice notice-success"><p>' .
+		esc_html(
+			sprintf(
+				'ACF restore complete: imported %d field groups from local JSON.',
+				$importedGroups
+			)
+		) .
+		'</p></div>';
 }
 
 function communitycvs_news_archive_posts_per_page( $query ) {
