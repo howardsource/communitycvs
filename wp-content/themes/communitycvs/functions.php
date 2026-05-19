@@ -85,7 +85,9 @@ function communitycvs_acf_json_load_point( $paths ) {
     return $paths;
 }
 
-add_action('acf/init', 'communitycvs_acf_json_auto_import', 20);
+if ( defined( 'COMMUNITYCVS_ACF_JSON_AUTO_IMPORT' ) && COMMUNITYCVS_ACF_JSON_AUTO_IMPORT ) {
+    add_action( 'acf/init', 'communitycvs_acf_json_auto_import', 20 );
+}
 function communitycvs_acf_json_auto_import() {
     if ( ! is_admin() ) {
         return;
