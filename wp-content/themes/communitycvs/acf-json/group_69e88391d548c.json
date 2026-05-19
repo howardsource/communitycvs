@@ -44,90 +44,7 @@
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_69e883b486d2b",
-                    "label": "Illustration Image",
-                    "name": "illustration_image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium",
-                    "parent_repeater": "field_69e883a886d2a"
-                },
-                {
-                    "key": "field_69e8a13a57255",
-                    "label": "Illustration Image Hover",
-                    "name": "illustration_image_hover",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium",
-                    "parent_repeater": "field_69e883a886d2a"
-                },
-                {
-                    "key": "field_69e883bd86d2c",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page",
-                        "news"
-                    ],
-                    "post_status": [
-                        "publish"
-                    ],
-                    "taxonomy": "",
-                    "allow_archives": 1,
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "parent_repeater": "field_69e883a886d2a"
-                }
-            ]
+            "sub_fields": []
         }
     ],
     "location": [
@@ -149,5 +66,6 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776853319
+    "modified": 1779193374,
+    "local_file": "\/Users\/howardmarsden\/Sites\/Development\/communitycvs\/wp-content\/themes\/communitycvs\/acf-json\/group_69e88391d548c.json"
 }

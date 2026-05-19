@@ -99,57 +99,7 @@
             "collapsed": "",
             "button_label": "Add Link",
             "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6893238c88adf",
-                    "label": "Title",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_6893238c83a91"
-                },
-                {
-                    "key": "field_6893238c88aec",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page",
-                        "news",
-                        "whats-on",
-                        "projects"
-                    ],
-                    "post_status": "",
-                    "taxonomy": "",
-                    "allow_archives": 1,
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "allow_in_bindings": 1,
-                    "parent_repeater": "field_6893238c83a91"
-                }
-            ]
+            "sub_fields": []
         },
         {
             "key": "field_6893238c83a98",
@@ -200,7 +150,9 @@
             "allow_in_bindings": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -221,5 +173,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759415260
+    "display_title": "",
+    "modified": 1779193374,
+    "local_file": "\/Users\/howardmarsden\/Sites\/Development\/communitycvs\/wp-content\/themes\/communitycvs\/acf-json\/group_6893238c8057c.json"
 }
