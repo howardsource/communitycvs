@@ -85,6 +85,130 @@ function communitycvs_acf_json_load_point( $paths ) {
     return $paths;
 }
 
+add_action( 'admin_init', 'communitycvs_acf_cleanup_duplicates', 5 );
+function communitycvs_acf_cleanup_duplicates() {
+    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+    if ( empty( $_GET['communitycvs_acf_cleanup'] ) ) {
+        return;
+    }
+    if ( get_option( 'communitycvs_acf_cleanup_done' ) ) {
+        return;
+    }
+
+    $host = wp_parse_url( home_url(), PHP_URL_HOST );
+    if ( $host !== 'howardair.local' ) {
+        return;
+    }
+    if ( ! post_type_exists( 'acf-field-group' ) || ! post_type_exists( 'acf-field' ) ) {
+        return;
+    }
+
+    $groups = get_posts(
+        array(
+            'post_type'      => 'acf-field-group',
+            'post_status'    => array( 'publish', 'acf-disabled' ),
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        )
+    );
+
+    $groupIdsByKey = array();
+    foreach ( $groups as $groupId ) {
+        $key = (string) get_post_field( 'post_name', $groupId );
+        $key = $key !== '' ? $key : (string) $groupId;
+        if ( ! isset( $groupIdsByKey[ $key ] ) ) {
+            $groupIdsByKey[ $key ] = array();
+        }
+        $groupIdsByKey[ $key ][] = (int) $groupId;
+    }
+
+    $deleteGroupIds = array();
+    foreach ( $groupIdsByKey as $ids ) {
+        if ( count( $ids ) <= 1 ) {
+            continue;
+        }
+        rsort( $ids, SORT_NUMERIC );
+        $deleteGroupIds = array_merge( $deleteGroupIds, array_slice( $ids, 1 ) );
+    }
+
+    if ( empty( $deleteGroupIds ) ) {
+        update_option( 'communitycvs_acf_cleanup_done', time(), true );
+        update_option( 'communitycvs_acf_cleanup_result', array( 'groupsDeleted' => 0, 'fieldsDeleted' => 0 ), false );
+        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_cleanup' ) ) );
+        exit;
+    }
+
+    global $wpdb;
+    $fieldRows = $wpdb->get_results( "SELECT ID, post_parent FROM {$wpdb->posts} WHERE post_type = 'acf-field' AND post_status IN ('publish','acf-disabled')", ARRAY_A );
+    $childrenMap = array();
+    foreach ( $fieldRows as $row ) {
+        $parentId = (int) $row['post_parent'];
+        $fieldId = (int) $row['ID'];
+        if ( $parentId <= 0 || $fieldId <= 0 ) {
+            continue;
+        }
+        if ( ! isset( $childrenMap[ $parentId ] ) ) {
+            $childrenMap[ $parentId ] = array();
+        }
+        $childrenMap[ $parentId ][] = $fieldId;
+    }
+
+    $fieldsDeleted = 0;
+    $groupsDeleted = 0;
+
+    $deleteFieldTree = null;
+    $deleteFieldTree = function ( $parentId ) use ( &$deleteFieldTree, &$childrenMap, &$fieldsDeleted ) {
+        if ( empty( $childrenMap[ $parentId ] ) ) {
+            return;
+        }
+        foreach ( $childrenMap[ $parentId ] as $childId ) {
+            $deleteFieldTree( $childId );
+            wp_delete_post( $childId, true );
+            $fieldsDeleted++;
+        }
+        unset( $childrenMap[ $parentId ] );
+    };
+
+    foreach ( $deleteGroupIds as $groupId ) {
+        $deleteFieldTree( (int) $groupId );
+        wp_delete_post( (int) $groupId, true );
+        $groupsDeleted++;
+    }
+
+    update_option( 'communitycvs_acf_cleanup_done', time(), true );
+    update_option( 'communitycvs_acf_cleanup_result', array( 'groupsDeleted' => $groupsDeleted, 'fieldsDeleted' => $fieldsDeleted ), false );
+
+    wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_cleanup' ) ) );
+    exit;
+}
+
+add_action( 'admin_notices', 'communitycvs_acf_cleanup_notice' );
+function communitycvs_acf_cleanup_notice() {
+    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+    $result = get_option( 'communitycvs_acf_cleanup_result' );
+    if ( empty( $result ) || ! is_array( $result ) ) {
+        return;
+    }
+    delete_option( 'communitycvs_acf_cleanup_result' );
+
+    $groupsDeleted = isset( $result['groupsDeleted'] ) ? (int) $result['groupsDeleted'] : 0;
+    $fieldsDeleted = isset( $result['fieldsDeleted'] ) ? (int) $result['fieldsDeleted'] : 0;
+
+    echo '<div class="notice notice-success"><p>' .
+        esc_html(
+            sprintf(
+                'ACF cleanup complete: deleted %d duplicate field groups and %d fields.',
+                $groupsDeleted,
+                $fieldsDeleted
+            )
+        ) .
+        '</p></div>';
+}
+
 function communitycvs_news_archive_posts_per_page( $query ) {
 	if ( is_admin() || ! $query->is_main_query() ) {
 		return;
