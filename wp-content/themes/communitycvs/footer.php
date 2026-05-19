@@ -28,10 +28,10 @@
             <div class="footer-follow">
                 <h4>Follow Us</h4>
                 <ul class="footer-social">
-                    <li><a class="footer-social-link facebook" href="#" aria-label="Facebook">Facebook</a></li>
-                    <li><a class="footer-social-link instagram" href="#" aria-label="Instagram">Instagram</a></li>
-                    <li><a class="footer-social-link linkedin" href="#" aria-label="LinkedIn">LinkedIn</a></li>
-                    <li><a class="footer-social-link x" href="#" aria-label="X">X</a></li>
+                    <li><a class="footer-social-link facebook" href="https://www.facebook.com/Communitycvs" aria-label="Facebook">Facebook</a></li>
+                    <li><a class="footer-social-link instagram" href="https://www.instagram.com/cvscommunity/" aria-label="Instagram">Instagram</a></li>
+                    <li><a class="footer-social-link linkedin" href="https://www.linkedin.com/company/blackburn-with-darwen-cvs/" aria-label="LinkedIn">LinkedIn</a></li>
+                    <li><a class="footer-social-link x" href="https://x.com/CommunityCVS" aria-label="X">X</a></li>
                 </ul>
             </div>
             <p class="footer-legals"><span class="copyright">&copy; Copyright CommunityCVS <?php echo date( 'Y' ); ?></span> | <a href="#">Privacy Policy</a> | <a href="#">Accessibility</a> | <a href="#">Customer Care Policy</a> | <a href="#">Data Privacy Notice</a></p>

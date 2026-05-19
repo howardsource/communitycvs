@@ -65,7 +65,7 @@ add_action( 'wp_enqueue_scripts', 'communitycvs_scripts' );
 add_filter('acf/settings/save_json', 'communitycvs_acf_json_save_point');
 function communitycvs_acf_json_save_point( $path ) {
     // update path
-    $path = get_stylesheet_directory() . '/acf-json';
+    $path = get_template_directory() . '/acf-json';
     return $path;
 }
 
@@ -78,7 +78,10 @@ function communitycvs_acf_json_load_point( $paths ) {
     unset($paths[0]);
     
     // append path
-    $paths[] = get_stylesheet_directory() . '/acf-json';
+    $paths[] = get_template_directory() . '/acf-json';
+    if ( get_stylesheet_directory() !== get_template_directory() ) {
+        $paths[] = get_stylesheet_directory() . '/acf-json';
+    }
     return $paths;
 }
 
