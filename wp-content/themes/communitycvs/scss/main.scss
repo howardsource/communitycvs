@@ -2078,6 +2078,7 @@ body.page .site-main {
             h4, h5 {
                 text-align: center;
                 padding: 18px;
+                margin: 0;
             }
             h4 {
                 border-top: 4px solid var(--tile-accent);
@@ -2178,6 +2179,19 @@ body.page .site-main {
             max-width: 1073px;
             width: calc(100% - 80px);
         }
+        .team-title {
+            margin-top: 5rem;
+            border-top: 1px solid $c_dark-blue;
+            padding: 5rem 0;
+            text-align: left;
+            h3 {
+                margin: 0;
+                color: $c_dark-blue;
+                font-size: 3.6rem;
+                line-height: 4.4rem;
+                font-weight: 600;
+            }
+        }
         .team-group {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2192,7 +2206,11 @@ body.page .site-main {
         }
         .image-outer {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            max-width: 332px;
+            max-height: 266px;
+            aspect-ratio: 332 / 266;
+            margin-left: auto;
+            margin-right: auto;
         }
         .image {
             width: 100%;
@@ -2256,12 +2274,16 @@ body.page .site-main {
                 margin-bottom: 2rem;
             }
         }
-        @media (max-width: 1100px) {
+        @media (max-width: 960px) {
             .team-group {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
+            .image-outer {
+                max-width: none;
+                max-height: none;
+            }
         }
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
             .team-group {
                 grid-template-columns: 1fr;
             }
