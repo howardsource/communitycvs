@@ -209,6 +209,112 @@ function communitycvs_acf_cleanup_notice() {
         '</p></div>';
 }
 
+add_action( 'admin_init', 'communitycvs_acf_rebuild_from_json', 6 );
+function communitycvs_acf_rebuild_from_json() {
+    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+    if ( empty( $_GET['communitycvs_acf_rebuild'] ) ) {
+        return;
+    }
+
+    $host = wp_parse_url( home_url(), PHP_URL_HOST );
+    if ( $host !== 'howardair.local' ) {
+        return;
+    }
+
+    if ( get_option( 'communitycvs_acf_rebuild_done' ) ) {
+        return;
+    }
+
+    if ( ! function_exists( 'acf_get_local_field_groups' ) || ! function_exists( 'acf_get_local_fields' ) || ! function_exists( 'acf_import_field_group' ) ) {
+        update_option( 'communitycvs_acf_rebuild_result', array( 'error' => 'ACF import functions not available.' ), false );
+        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
+        exit;
+    }
+
+    if ( empty( $_GET['confirm'] ) || (string) $_GET['confirm'] !== '1' ) {
+        update_option( 'communitycvs_acf_rebuild_result', array( 'error' => 'Missing confirm=1.' ), false );
+        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
+        exit;
+    }
+
+    if ( ! post_type_exists( 'acf-field-group' ) || ! post_type_exists( 'acf-field' ) ) {
+        update_option( 'communitycvs_acf_rebuild_result', array( 'error' => 'ACF post types not registered.' ), false );
+        wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
+        exit;
+    }
+
+    $fields = get_posts(
+        array(
+            'post_type'      => 'acf-field',
+            'post_status'    => array( 'publish', 'acf-disabled' ),
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        )
+    );
+    foreach ( $fields as $fieldId ) {
+        wp_delete_post( (int) $fieldId, true );
+    }
+
+    $groups = get_posts(
+        array(
+            'post_type'      => 'acf-field-group',
+            'post_status'    => array( 'publish', 'acf-disabled' ),
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        )
+    );
+    foreach ( $groups as $groupId ) {
+        wp_delete_post( (int) $groupId, true );
+    }
+
+    $importedGroups = 0;
+    $localGroups = acf_get_local_field_groups();
+    if ( ! empty( $localGroups ) && is_array( $localGroups ) ) {
+        foreach ( $localGroups as $group ) {
+            if ( empty( $group['key'] ) ) {
+                continue;
+            }
+            $group['fields'] = acf_get_local_fields( $group['key'] );
+            acf_import_field_group( $group );
+            $importedGroups++;
+        }
+    }
+
+    update_option( 'communitycvs_acf_rebuild_done', time(), true );
+    update_option( 'communitycvs_acf_rebuild_result', array( 'importedGroups' => $importedGroups ), false );
+    wp_safe_redirect( remove_query_arg( array( 'communitycvs_acf_rebuild', 'confirm' ) ) );
+    exit;
+}
+
+add_action( 'admin_notices', 'communitycvs_acf_rebuild_notice' );
+function communitycvs_acf_rebuild_notice() {
+    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+    $result = get_option( 'communitycvs_acf_rebuild_result' );
+    if ( empty( $result ) || ! is_array( $result ) ) {
+        return;
+    }
+    delete_option( 'communitycvs_acf_rebuild_result' );
+
+    if ( ! empty( $result['error'] ) ) {
+        echo '<div class="notice notice-error"><p>' . esc_html( (string) $result['error'] ) . '</p></div>';
+        return;
+    }
+
+    $importedGroups = isset( $result['importedGroups'] ) ? (int) $result['importedGroups'] : 0;
+    echo '<div class="notice notice-success"><p>' .
+        esc_html(
+            sprintf(
+                'ACF rebuild complete: imported %d field groups from local JSON.',
+                $importedGroups
+            )
+        ) .
+        '</p></div>';
+}
+
 function communitycvs_news_archive_posts_per_page( $query ) {
 	if ( is_admin() || ! $query->is_main_query() ) {
 		return;
