@@ -17,6 +17,7 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 		$news_content = get_field( 'content' );
+			$headline_image = get_field( 'headline_image' );
 		$news_title   = get_the_title();
 		$news_date    = get_the_date( 'l jS F' );
 		$news_url     = get_permalink();
@@ -35,6 +36,15 @@ if ( have_posts() ) :
 				<h1><?php echo esc_html( $news_title ); ?></h1>
 				<div class="news-date"><?php echo esc_html( $news_date ); ?></div>
 			</header>
+			<?php if ( ! empty( $headline_image ) && ! empty( $headline_image['url'] ) ) : ?>
+			<div class="news-headline-image">
+				<img
+					src="<?php echo esc_url( $headline_image['url'] ); ?>"
+					alt="<?php echo esc_attr( $headline_image['alt'] ?? '' ); ?>"
+					loading="lazy"
+				/>
+			</div>
+			<?php endif; ?>
 			<?php if ( ! empty( $news_content ) ) : ?>
 			<?php echo apply_filters( 'the_content', $news_content ); ?>
 			<?php endif; ?>

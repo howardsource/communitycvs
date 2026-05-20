@@ -23,7 +23,8 @@
 				$news_category_classes = '';
 				if (!is_wp_error($news_categories) && !empty($news_categories)) {
 					foreach ($news_categories as $news_category) {
-						$news_category_classes .= sanitize_html_class($news_category->slug);
+						$slug = sanitize_title($news_category->slug);
+						$news_category_classes .= ' ' . sanitize_html_class($slug);
 					}
 				}
 				$tile_classes = 'event-tile news-tile ' . $news_category_classes;
