@@ -1306,6 +1306,22 @@ body.page .site-main {
                 color: $c_dark-blue;
                 text-decoration: underline;
             }
+            ul,
+            ol {
+                margin: 0 0 1.6rem 2.4rem;
+                padding: 0;
+                list-style-position: outside;
+            }
+            ul { list-style-type: disc; }
+            ol { list-style-type: decimal; }
+            li {
+                margin: 0 0 0.8rem 0;
+            }
+            li > ul,
+            li > ol {
+                margin-top: 0.8rem;
+                margin-bottom: 0;
+            }
             .link-button {
                 a {
                     text-decoration: none;
