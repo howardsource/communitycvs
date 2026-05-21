@@ -20,12 +20,12 @@
 	<?php else : ?>
 	<div class="inner column-group <?= $module['cols_type']; ?>">
 		<?php if($module['column_configuration']=='image-text') : ?>
-		<div class="column image-column reveal<?= $leftImageContainClass; ?>" style="background-image: url(<?php echo $module['left_column_image']['sizes']['half-width']; ?>);"></div>
+		<div class="column image-column reveal<?= $leftImageContainClass; ?>" style="background-image: url(<?php echo $module['left_column_image']['sizes']['half-width-full']; ?>);"></div>
 		<?php else : ?>
 		<div class="column text-column reveal"><div class="text"><?php echo $module['left_column']; ?></div></div>
 		<?php endif; ?>
 		<?php if($module['column_configuration']=='text-image') : ?>
-		<div class="column image-column reveal<?= $rightImageContainClass; ?>" style="background-image: url(<?php echo $module['right_column_image']['sizes']['half-width']; ?>);"></div>
+		<div class="column image-column reveal<?= $rightImageContainClass; ?>" style="background-image: url(<?php echo $module['right_column_image']['sizes']['half-width-full']; ?>);"></div>
 		<?php else : ?>	
 		<div class="column text-column reveal"><div class="text"><?php echo $module['right_column']; ?></div></div>		
 		<?php endif; ?>

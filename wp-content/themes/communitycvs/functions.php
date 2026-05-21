@@ -8,6 +8,7 @@ function communitycvs_setup() {
     add_theme_support( 'post-thumbnails' );
     add_image_size( 'carousel', 1920, 1080, true );
     add_image_size( 'half-width', 800, 450, true );
+    add_image_size( 'half-width-full', 800, 99999999, false );
     add_image_size( 'two-col', 594, 446, true );
     
     // Register Navigation Menus
