@@ -1,5 +1,5 @@
-
-<?php
+<?php 
+	/** @var array $module */
 $cardType = isset($module['card_type']) ? $module['card_type'] : 'image';
 $cardLayout = isset($module['card_layout']) ? $module['card_layout'] : '3-col';
 $useCompositeShadow = ($cardType === 'image' && $cardLayout === '2-col');

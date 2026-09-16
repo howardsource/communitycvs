@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="module outer accordion <?= $module['background_colour']; ?>">
 	<?php if($module['display_title']) : ?>
 	<div class="inner title title-<?= $module['cols_type']; ?><?php if($module['centred_title']) : ?> centred-title<?php endif; ?>"><h2><?= $module['title']; ?></h2></div>

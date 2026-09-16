@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="module post-type outer <?php echo $module['post_type']; ?> <?php echo $module['background_colour']; ?>">
 	<?php if($module['title']!='') : ?><div class="inner"><h2><?= $module['title']; ?></h2></div><?php endif; ?>
 	<div id="post-carousel-<?= $modN; ?>" class="swiper">

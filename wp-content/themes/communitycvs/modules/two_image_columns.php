@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <div class="outer module two-image-columns pink">
 	<div class="inner">
 		<div class="image">

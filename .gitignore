@@ -1,3 +1,39 @@
+# -----------------------------------------------------------------------------
+# Theme-only whitelist.
+# Ignore EVERYTHING by default, then opt-in only the paths we own.
+# -----------------------------------------------------------------------------
+
+# Block everything at the site root.
+/*
+
+# -----------------------------------------------------------------------------
+# Opt-in: repo config + workspace tooling
+# -----------------------------------------------------------------------------
+!.gitignore
+!.github
+!.githooks
+!communitycvs.code-workspace
+!workspace.config.json
+!browser-sync.config.cjs
+!package.json
+!package-lock.json
+!scripts
+scripts/*
+!scripts/serve-live.cjs
+
+# -----------------------------------------------------------------------------
+# Opt-in: wp-content (descend level by level)
+# -----------------------------------------------------------------------------
+!wp-content
+wp-content/*
+!wp-content/themes
+
+wp-content/themes/*
+!wp-content/themes/communitycvs
+
+# -----------------------------------------------------------------------------
+# Standard ignores that apply even inside whitelisted paths.
+# -----------------------------------------------------------------------------
 wp-config.php
 wp-content/uploads/
 wp-content/upgrade/

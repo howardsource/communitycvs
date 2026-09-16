@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="outer module illustrated-link-tiles">
 	<div class="inner">
 		<?php if ( ! empty( $module['title'] ) ) : ?>

@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="outer module illustrated-quote">
 	<div class="inner">
 		<div class="illustrated-quote-layout">

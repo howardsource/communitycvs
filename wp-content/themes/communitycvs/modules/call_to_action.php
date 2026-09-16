@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="module call-to-action outer <?= $module['image_position']; ?>">
 	<div class="inner">
 		<div class="image <?=  $module['image_size']; ?>" style="background-image: url(<?= $module['image']['sizes']['half-width']; ?>)"></div>		

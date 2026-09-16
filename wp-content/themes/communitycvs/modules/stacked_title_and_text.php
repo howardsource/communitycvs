@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="outer module stacked-title-and-text pink">
 	<?php if($module['display_title']) : ?>
 	<div class="inner module-title"><h3><?= $module['title']; ?></h3></div>

@@ -262,21 +262,26 @@
                 "id": ""
             },
             "choices": {
-                "white": "White",
-                "pink": "Pink",
-                "grey": "Grey",
-                "lilac": "Lilac",
-                "salmon": "Salmon",
-                "pale-blue": "Pale Blue (AiM)"
+                "White": "White",
+                "Green": "Green",
+                "Purple": "Purple",
+                "Mid Blue": "Mid Blue",
+                "Yellow": "Yellow",
+                "Core Grey": "Core Grey",
+                "Olive": "Olive",
+                "Dark Blue": "Dark Blue",
+                "Teal": "Teal"
             },
-            "default_value": "grey",
+            "default_value": "White",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
             "allow_in_bindings": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -297,5 +302,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1779202751
+    "display_title": "",
+    "modified": 1779291165
 }

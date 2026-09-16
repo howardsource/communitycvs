@@ -1,0 +1,44 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "task.allowAutomaticTasks": "on",
+    "files.exclude": {
+      "**/node_modules": true
+    },
+    "search.exclude": {
+      "**/node_modules": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Live Refresh",
+        "type": "npm",
+        "script": "live",
+        "isBackground": true,
+        "runOptions": {
+          "runOn": "folderOpen"
+        },
+        "presentation": {
+          "reveal": "never",
+          "panel": "dedicated",
+          "showReuseMessage": false,
+          "clear": false
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Community CVS: Build CSS",
+        "type": "npm",
+        "script": "build:css",
+        "group": "build",
+        "problemMatcher": []
+      }
+    ]
+  }
+}

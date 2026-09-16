@@ -76,14 +76,13 @@
             },
             "post_type": [
                 "page",
-                "news",
-                "work"
+                "news"
             ],
             "post_status": "",
             "taxonomy": "",
             "allow_archives": 1,
             "multiple": 0,
-            "allow_null": 0,
+            "allow_null": 1,
             "allow_in_bindings": 0
         },
         {
@@ -400,5 +399,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779202751
+    "modified": 1779352143
 }

@@ -1,0 +1,21 @@
+{
+  "name": "communitycvs-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Workspace tooling for the Community CVS WordPress project.",
+  "scripts": {
+    "build:css": "sass --style=expanded wp-content/themes/communitycvs/scss/main.scss wp-content/themes/communitycvs/css/main.css",
+    "watch:css": "sass --watch --style=expanded wp-content/themes/communitycvs/scss/main.scss:wp-content/themes/communitycvs/css/main.css",
+    "serve": "node scripts/serve-live.cjs",
+    "dev": "concurrently -k -n SASS,BROWSER -c green,blue \"npm:watch:css\" \"npm:serve\"",
+    "live": "npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.2",
+    "sass": "^1.89.0"
+  }
+}

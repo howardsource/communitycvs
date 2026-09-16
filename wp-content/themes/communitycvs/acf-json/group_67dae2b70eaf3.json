@@ -142,10 +142,14 @@
                         "id": ""
                     },
                     "choices": {
+                        "lime-green": "Green",
                         "purple": "Purple",
-                        "orange-yellow": "Orange Yellow",
-                        "lime-green": "Lime Green",
-                        "teal-green": "Teal Green"
+                        "teal-blue": "Mid Blue",
+                        "orange-yellow": "Yellow",
+                        "mid-grey": "Core Grey",
+                        "olive-green": "Olive",
+                        "dark-blue": "Dark Blue",
+                        "teal-green": "Teal"
                     },
                     "default_value": "purple",
                     "return_format": "value",
@@ -195,5 +199,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779202751
+    "modified": 1779291605
 }

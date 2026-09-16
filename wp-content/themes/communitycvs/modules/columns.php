@@ -1,4 +1,5 @@
 <?php 
+	/** @var array $module */
 	$class = '';
 	$leftImageContainClass = !empty($module['left_image_contain']) ? ' left_image_contain' : '';
 	$rightImageContainClass = !empty($module['right_image_contain']) ? ' right_image_contain' : '';

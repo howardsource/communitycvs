@@ -1664,7 +1664,8 @@ body.page .site-main {
             background-color: $c_blue-grey;
         }
         .news-tile.training-resource .category-band,
-        .news-tile.training-resources .category-band,
+        .news-tile.training-resources
+         .category-band,
         .news-tile.training .category-band,
         .news-tile.resource .category-band {
             background-color: $c_lime-green;

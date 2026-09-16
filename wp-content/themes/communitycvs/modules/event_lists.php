@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section id="event-lists-<?= $modN; ?>" class="outer module event-lists white">
 	<div class="inner title">
 		<h2><?= $module['title']; ?></h2>

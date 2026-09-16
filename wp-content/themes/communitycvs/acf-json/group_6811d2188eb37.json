@@ -3,6 +3,27 @@
     "title": "Module - Team",
     "fields": [
         {
+            "key": "field_6a0dd322a9528",
+            "label": "Team Title",
+            "name": "team_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6811d2189483f",
             "label": "Team",
             "name": "team",
@@ -205,5 +226,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779202751
+    "modified": 1779290945
 }

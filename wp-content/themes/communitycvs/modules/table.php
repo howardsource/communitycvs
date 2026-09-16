@@ -1,4 +1,6 @@
-
+<?php 
+	/** @var array $module */
+?>
 <section class="outer module table">
 	<div class="inner">
 <?php

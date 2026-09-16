@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+branch="$(git symbolic-ref --quiet --short HEAD || true)"
+if [[ -z "${branch}" ]]; then
+  exit 0
+fi
+
+if [[ "${branch}" != "main" ]]; then
+  exit 0
+fi
+
+git push origin main

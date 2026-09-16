@@ -1,4 +1,5 @@
-<?php
+<?php 
+	/** @var array $module */
 $teamIndex = 0;
 if (!isset($module) || empty($module['team']) || !is_array($module['team'])) {
 	return;

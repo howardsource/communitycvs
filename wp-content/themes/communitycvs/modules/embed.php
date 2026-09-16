@@ -1,4 +1,5 @@
-<?php
+<?php 
+/** @var array $module */
 $embed    = $module['embed_url'];
 if ($embed) :
 	if (preg_match('/src="([^"]+)"/', $embed, $matches)) :

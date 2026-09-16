@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section id="testimonial-<?= $modN; ?>" class="module outer testimonials swiper">
 	<div class="swiper-wrapper">
 	<?php foreach($module['testimonials'] as $slide) : ?>

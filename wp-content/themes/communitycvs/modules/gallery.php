@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <div class="module gallery outer <?= $module['background_colour']; ?>">
 	<div class="inner">
 		<div id="gallery-<?= $modN; ?>" class="swiper">

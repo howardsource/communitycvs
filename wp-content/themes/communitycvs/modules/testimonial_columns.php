@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="outer module testimonial-columns">
 	<?php if($module['title']!=='') : ?>
 	<div class="inner module-title"><h3><?= $module['title']; ?></h3></div>

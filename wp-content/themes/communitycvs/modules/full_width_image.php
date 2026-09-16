@@ -1,4 +1,6 @@
 <?php 
+	/** @var array $module */
+	
 $class = 'image';
 if($module['width']=='column') : 
 	$class .= ' inner';

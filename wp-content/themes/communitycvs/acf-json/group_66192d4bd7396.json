@@ -110,13 +110,14 @@
                 "id": ""
             },
             "choices": {
-                "teal-blue": "Teal Blue",
-                "olive-green": "Olive Green",
-                "dark-blue": "Dark Blue",
-                "teal-green": "Teal Green",
+                "lime-green": "Green",
                 "purple": "Purple",
-                "lime-green": "Lime Green",
-                "orange-yellow": "Orange Yellow"
+                "teal-blue": "Mid Blue",
+                "orange-yellow": "Yellow",
+                "mid-grey": "Core Grey",
+                "olive-green": "Olive",
+                "dark-blue": "Dark Blue",
+                "teal-green": "Teal"
             },
             "default_value": "teal-blue",
             "return_format": "value",
@@ -167,5 +168,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779202751
+    "modified": 1779291554
 }

@@ -1,0 +1,6 @@
+{
+  "proxy": "http://howardair.local/communitycvs/",
+  "port": 3000,
+  "uiPort": 3001,
+  "open": true
+}

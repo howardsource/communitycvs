@@ -221,7 +221,7 @@
         },
         {
             "key": "field_67f8040e7db11",
-            "label": "Left Column Image",
+            "label": "Left Column Image (approx 5\/4 ratio)",
             "name": "left_column_image",
             "aria-label": "",
             "type": "image",
@@ -301,7 +301,7 @@
         },
         {
             "key": "field_67f804697db14",
-            "label": "Right Column Image",
+            "label": "Right Column Image (approx 5\/4 ratio)",
             "name": "right_column_image",
             "aria-label": "",
             "type": "image",
@@ -400,5 +400,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779202751
+    "modified": 1779351905
 }

@@ -1,3 +1,6 @@
+<?php 
+	/** @var array $module */
+?>
 <section class="module outer introduction">
 	<div class="inner">
 		<?php if($module['display_title']) : ?>
