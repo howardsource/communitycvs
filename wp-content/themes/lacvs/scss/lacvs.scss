@@ -1,0 +1,531 @@
+$c_maroon: #5C0336;
+$c_rose: #FF384A;
+$c_green: #1CCF82;
+$c_dark-green: #00402E;
+$c_yellow: #EEBF56;
+$c_lilac: #9EA6EB;
+
+:root {
+
+}
+body {
+    font-family: "basic-sans", sans-serif;
+}
+p {
+    &.large {
+        color: $c_maroon;
+    }
+}
+h2 {
+    color: $c_maroon;
+}
+h3 {
+    color: $c_maroon;
+}
+h4 {
+    color: $c_maroon;
+}
+.button-link {
+    &.outline {
+        a {
+            font-weight: bold;
+            color: $c_maroon;
+            border-color: $c_rose;
+        }
+    }
+}
+a {
+    &.link-button {
+        color: $c_maroon;
+        text-decoration: none;
+    }
+}
+.site-main {
+    background-image: url('../images/centre-mark.svg');
+    background-repeat: no-repeat;
+    background-position: -10% center;
+    background-attachment: fixed;
+    background-size: min(514.604px, 42vw) auto;
+}
+body.page .site-main {
+    background-color: #E4E9E1;
+}
+@media (max-width: 900px) {
+    .site-main {
+        background-size: min(320px, 70vw) auto;
+    }
+}
+.contact-modal__backdrop {
+    background: rgba(#556269, 0.85);
+}
+.contact-modal__dialog { 
+    background-color: $c_maroon;
+    h3 {
+        color: $c_rose;
+    }
+    p {
+        color: $c_rose;
+        strong, .small {
+            color: #FFF;
+        }
+    }
+}
+.site-header,
+.site-footer {
+  background-color: $c_maroon;
+}
+.site-header {
+    h1 {
+        transform: translateY(24px);
+        a {
+            width: 188px;
+            height: 52px;
+            background-image: url('../images/lacvs.svg');
+        }
+    }
+    .nav-top {
+        .nav-home {
+            background-image: url('../images/home-icon.svg');
+        }
+        .quick-links {
+            li {
+                a {
+                    color: $c_rose;
+                    text-decoration: none;
+                }
+            }
+        }
+        .contact-button a {
+            background-color: $c_rose;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-links {
+            li {
+                &.social-facebook a { background-image: url('../images/fb-icon.svg'); }
+                &.social-instagram a { background-image: url('../images/ig-icon.svg'); }
+                &.social-linkedin a { background-image: url('../images/li-icon.svg'); }
+                &.social-x a { background-image: url('../images/x-icon.svg'); }
+            }
+        }
+    }
+    .nav-bottom {
+        .main-menu {
+            li { 
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        color: $c_rose;
+                    }
+                }
+                &.menu-item-has-children {
+                    a:before {
+                        display: none;
+                    }
+                    a:after {
+                        border-color: $c_rose;
+                    }
+                    a:hover {
+                        color: $c_rose;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.title-banner {
+    background-color: $c_maroon;
+    
+    .banner-image {
+        z-index: 1;
+        position: relative;
+        height: 100% !important;
+    }
+    &.default {
+        .band {
+            background-color: $c_rose;
+        }
+    }
+    .band {
+        overflow: hidden;
+        &::after {
+            width: 40vw;
+            height: 40vw;
+            max-width: 640px;
+            max-height: 640px;
+            aspect-ratio: 1 / 1;
+
+            mix-blend-mode: normal;
+            background-image: url('../images/banner-rose.svg');
+            background-size: contain;
+        }
+    }
+    &.has-image {
+        background-color: $c_rose;
+        background-image: url('../images/banner-rose-maroon.svg');
+        mix-blend-mode: normal;
+        background-size: 800px;
+        background-repeat: no-repeat;
+        background-position: -400px -130px;
+        padding-top: 25px;
+        h2 {
+            width: 100%;
+        }
+        .band {
+            height: 485px;
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+.home-carousel.outer {
+    background: transparent;
+    position: relative;
+    .home-carousel-wrap {
+        background: transparent;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100px;
+        background-color: $c_maroon;
+        z-index: 0;
+    }
+    .home-carousel-slide-inner.default {
+        background-color: $c_maroon;
+    }
+}
+#modules .module-title {   
+    border-top-color: $c_maroon;
+    h2 {
+        
+        color: $c_maroon;
+    }
+}
+#modules .partners {
+    .partner-tile {
+        .partner-link {
+            span {
+                background-color: $c_maroon;
+            }
+        }
+        &:hover {
+            .partner-link {
+                span {
+                    background-color: $c_rose;
+                }
+            }
+        }
+    }
+}
+
+#modules .tiles.card-type-image {
+    background-color: transparent;
+    padding: 10rem 0;
+    // The `0` above cancels the parent `.outer` gutter, and this selector
+    // outranks the parent's `#modules .tiles` rule, so reinstate the 24px
+    // gutter here for tablet / mobile. Desktop is unchanged.
+    @media (max-width: 1200px) {
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+    
+    &.lilac {
+        background-color: $c_lilac;
+    }
+    &.yellow {
+        background-color: $c_yellow;
+    }
+    &.dark-green {
+        background-color: $c_dark-green;
+        color: #fff;
+        .inner.module-title {
+            h2 {
+                color: #FFF;
+            }
+        }
+        .more-link,
+        .button-link {
+            a {
+                border-color: #fff;
+                color: #fff;
+            }
+        }
+    }
+    &.green {
+        background-color: $c_green;
+    }
+    &.rose {
+        background-color: $c_rose;
+        color: #fff;
+        .inner.module-title {
+            h2 {
+                color: #FFF;
+            }
+        }
+        .more-link,
+        .button-link {
+            a {
+                border-color: #fff;
+                color: #fff;
+            }
+        }
+    }
+    &.default,
+    &.maroon {
+        background-color: $c_maroon;
+        color: #fff;
+        .inner.module-title {
+            h2 {
+                color: #FFF;
+            }
+        }
+        .more-link,
+        .button-link {
+            a {
+                border-color: #fff;
+                color: #fff;
+            }
+        }
+    }
+    &.default {
+        background-color: transparent;
+    }
+    &.card-layout-2-col.default {
+        .tiles-composite {
+            border: none;
+            filter: none;
+            &::before, &::after {
+                display: none;
+            }
+        }
+        .module-title {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            h2 {
+                color: $c_maroon;
+                margin-bottom: 5rem;
+                
+            }
+        }
+        .tile-group {
+            background-color: transparent;
+            .tile {
+                background-color: transparent;
+                h4 {
+                    background-color: white;
+                }
+            }
+        }
+    }
+    a {
+        color: $c_maroon;
+    }
+    .more-link {
+        .link-button {
+            color: $c_maroon;
+            border-color: $c_rose;
+            text-decoration: none;
+            &:hover {
+                border-color: $c_maroon;
+                background-color: $c_maroon;
+                color: #fff;
+            }
+        }
+    }
+    .tile {
+        h4  {
+            border-top-color: $c_rose;
+        }
+    }
+}
+#modules .tiles.card-type-text {
+    background-color: transparent;
+    .tile {
+        border-top-color: $c_rose;
+        &::before {
+            border-color: $c_maroon;
+        }
+        &::after {
+            background-color: $c_maroon;
+        }
+        a {
+            color: $c_maroon;
+        }
+        &.rose {
+            border-top-color: $c_rose;
+        }
+        &.green {
+            border-top-color: $c_green;
+        }
+        &.dark-green {
+            border-top-color: $c_dark-green;
+        }
+        &.yellow {
+            border-top-color: $c_yellow;
+        }
+        &.lilac {
+            border-top-color: $c_lilac;
+        }
+        &.maroon {
+            border-top-color: $c_maroon;
+        }
+        &.default {
+            border-top-color: $c_rose;
+        }
+    }
+    .more-link {
+        .link-button {
+            color: $c_maroon;
+            border-color: $c_rose;
+            text-decoration: none;
+            &:hover {
+                border-color: $c_maroon;
+                background-color: $c_maroon;
+                color: #fff;
+            }
+        }
+    }
+}
+a.download-button {
+    border: 1px solid $c_maroon;
+    background-image: url('../images/lacvs-download.svg');
+}
+.link-button a {
+    border: 1px solid $c_rose !important;
+    &:hover {
+        background-color: $c_maroon;
+        color: #fff;
+    }
+}
+#modules .columns .inner {
+    a {
+        color: $c_maroon;
+    }
+    img {
+        border-radius: 10px;
+    }
+}
+#modules .team {
+    background-color: transparent;
+    .team-title { 
+        border-top: 0;
+        h3 {
+        color: $c_maroon;
+        }
+    }
+    h4 {
+        color: $c_maroon;
+    }
+}
+#modules .call-to-action {
+    
+    padding: 7.5rem 0;
+    // Same as the tiles module above: the `0` cancels the parent `.outer`
+    // gutter, and this file loads after the parent so it wins. Reinstate
+    // the 24px gutter for tablet / mobile. Desktop is unchanged.
+    @media (max-width: 1200px) {
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+    .text-container {
+        color: $c_maroon;
+        .button-link {
+            
+            a {
+                border-color: $c_maroon;
+                color: $c_maroon;
+                text-transform: uppercase;
+            }
+        }
+        &.lilac {
+            background-color: $c_lilac;
+        }
+        &.yellow {
+            background-color: $c_yellow;
+        }
+        &.dark-green {
+            background-color: $c_dark-green;
+            color: #fff;
+            h3 {
+                color: #fff;
+            }
+            .button-link {
+                a {
+                    border-color: #fff;
+                    color: #fff;
+                }
+            }
+        }
+        &.green {
+            background-color: $c_green;
+        }
+        &.rose {
+            background-color: $c_rose;
+            color: #fff;
+            h3 {
+                color: #fff;
+            }
+            .button-link {
+                a {
+                    border-color: #fff;
+                    color: #fff;
+                }
+            }
+        }
+        &.default,
+        &.maroon {
+            background-color: $c_maroon;
+            color: #fff;
+            h3 {
+                color: #fff;
+            }
+            .button-link {
+                a {
+                    border-color: #fff;
+                    color: #fff;
+                }
+            }
+        }
+        &.default {
+            background-color: $c_maroon;
+        }
+    }
+}
+
+
+
+.site-footer {
+    background-image: url('../images/footer-rose.svg');
+    background-position-x: calc(100% + 162px);
+    .footer-logo-tab {
+        background-color: transparent;
+        a {
+            background-image: url('../images/footer-logo.svg');
+            background-repeat: no-repeat;
+            background-position: left 60px;
+            background-size: 188px auto;
+        }
+    }
+    .footer-contact-button {
+        background-color: $c_rose;
+        color: #fff;
+        text-decoration: none;
+    }
+    .footer-legals {
+        color: #EEBF56;
+        span, a {
+            color: #EEBF56;
+        }
+    }
+}

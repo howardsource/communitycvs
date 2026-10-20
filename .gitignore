@@ -30,6 +30,7 @@ wp-content/*
 
 wp-content/themes/*
 !wp-content/themes/communitycvs
+!wp-content/themes/lacvs
 
 # -----------------------------------------------------------------------------
 # Standard ignores that apply even inside whitelisted paths.

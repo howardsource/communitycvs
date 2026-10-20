@@ -4,8 +4,8 @@
   "private": true,
   "description": "Workspace tooling for the Community CVS WordPress project.",
   "scripts": {
-    "build:css": "sass --style=expanded wp-content/themes/communitycvs/scss/main.scss wp-content/themes/communitycvs/css/main.css",
-    "watch:css": "sass --watch --style=expanded wp-content/themes/communitycvs/scss/main.scss:wp-content/themes/communitycvs/css/main.css",
+    "build:css": "sass --style=expanded wp-content/themes/communitycvs/scss/main.scss wp-content/themes/communitycvs/css/main.css && sass --style=expanded wp-content/themes/lacvs/scss/lacvs.scss wp-content/themes/lacvs/css/lacvs.css",
+    "watch:css": "sass --watch --style=expanded wp-content/themes/communitycvs/scss/main.scss:wp-content/themes/communitycvs/css/main.css wp-content/themes/lacvs/scss/lacvs.scss:wp-content/themes/lacvs/css/lacvs.css",
     "serve": "node scripts/serve-live.cjs",
     "dev": "concurrently -k -n SASS,BROWSER -c green,blue \"npm:watch:css\" \"npm:serve\"",
     "live": "npm run dev"

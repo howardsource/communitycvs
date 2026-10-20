@@ -10,6 +10,7 @@ function communitycvs_setup() {
     add_image_size( 'half-width', 800, 450, true );
     add_image_size( 'half-width-full', 800, 99999999, false );
     add_image_size( 'two-col', 594, 446, true );
+    add_image_size( 'partner-logo', 816, 312, false );
     
     // Register Navigation Menus
     register_nav_menus( array(
@@ -34,7 +35,8 @@ function communitycvs_scripts() {
     wp_enqueue_style( 'communitycvs-google-fonts', 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap', array(), null );
 
     // Enqueue the main stylesheet
-    wp_enqueue_style( 'communitycvs-style', get_stylesheet_uri() );
+    $style_version = file_exists( get_template_directory() . '/style.css' ) ? filemtime( get_template_directory() . '/style.css' ) : '1.0.0';
+    wp_enqueue_style( 'communitycvs-style', get_template_directory_uri() . '/style.css', array(), $style_version );
     
     // Enqueue compiled CSS from SCSS
     $css_version = file_exists( get_template_directory() . '/css/main.css' ) ? filemtime( get_template_directory() . '/css/main.css' ) : '1.0.1';

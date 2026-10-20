@@ -8,6 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<?php if( is_child_theme() ) : ?>
+	<link rel="stylesheet" href="https://use.typekit.net/ejj3tfm.css">
+	<?php endif; ?>
+	
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -72,32 +76,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <!-- Bottom menu section: main dropdown menus -->
             <div class="nav-bottom">
-                <ul class="main-menu" id="main-menu-root">
-					<?php $mainMenu = get_field('main_menu', 'options'); ?>
+			<?php
+                                        $menuType = get_field( 'menu_type', 'options' );
+                                        $isMinimalMenu = 'minimal' === $menuType;
+                                        $mainMenu = get_field( $isMinimalMenu ? 'minimal_menu' : 'main_menu', 'options' );
+                                        ?>
+                <ul class="main-menu <?=  $menuType ?>" id="main-menu-root">
+                                        
 					<?php if ($mainMenu) : ?>
                     <?php foreach($mainMenu as $link) : ?>
-					<?php $submenuColumns = isset($link['submenu_columns']) ? $link['submenu_columns'] : array(); ?>
-					<?php $submenuColumnCount = $submenuColumns ? count($submenuColumns) : 0; ?>
-					<li class="<?php echo $submenuColumns ? 'menu-item-has-children has-megamenu' : ''; ?>">
+                                        <?php
+                                        $submenuColumns = isset($link['submenu_columns']) ? $link['submenu_columns'] : array();
+                                        $submenuColumnCount = $submenuColumns ? count($submenuColumns) : 0;
+                                        $menuItemClasses = array();
+
+                                        if ($submenuColumns) {
+                                                $menuItemClasses[] = 'menu-item-has-children';
+                                                $menuItemClasses[] = 'has-submenu';
+                                                $menuItemClasses[] = $isMinimalMenu ? 'has-minimal-menu' : 'has-megamenu';
+                                        }
+                                        ?>
+                                        <li class="<?php echo esc_attr( implode( ' ', $menuItemClasses ) ); ?>">
                         <a href="<?php echo esc_url( $link['link'] ); ?>"><?php echo esc_html($link['title']); ?></a>
 						<?php if ($submenuColumns) : ?>
-                        <ul class="sub-menu megamenu" style="--megamenu-columns: <?php echo (int) $submenuColumnCount; ?>;">
+                        <ul class="sub-menu <?php echo esc_attr( $isMinimalMenu ? 'minimal-menu' : 'megamenu' ); ?>" style="--megamenu-columns: <?php echo (int) $submenuColumnCount; ?>;">
 							<?php foreach($submenuColumns as $column) : ?>
 							<?php
 							$columnAccentClass = '';
-							if (!empty($column['column_accent'])) {
+							if (!empty($column['column_accent']) && !is_child_theme()) {
 								$columnAccentClass = ' ' . sanitize_html_class($column['column_accent']);
 							}
 							?>
-							<li class="submenu-column">
-								<?php if (!empty($column['column_image'])) : ?>
+                                                        <li class="submenu-column<?php echo $isMinimalMenu ? ' submenu-column-minimal' : ''; ?>">
+                                                                <?php if (!$isMinimalMenu && !empty($column['column_image'])) : ?>
 								<div class="submenu-column-image<?php echo esc_attr($columnAccentClass); ?>" style="background-image: url(<?php echo esc_url($column['column_image']['sizes']['half-width']); ?>)"></div>
-								<?php else : ?>
+                                                                <?php elseif(!$isMinimalMenu && !is_child_theme()) : ?>
 								<div class="submenu-column-accent-band<?php echo esc_attr($columnAccentClass); ?>"></div>
 								<?php endif; ?>
-								<?php if (!empty($column['title_link'])) : ?>
+                                                                <?php if (!$isMinimalMenu && !empty($column['title_link'])) : ?>
 								<div class="submenu-column-title"><a href="<?php echo esc_url(get_permalink($column['title_link'])); ?>"><?php echo esc_html($column['column_title']); ?></a></div>
-								<?php else : ?>
+                                                                <?php elseif (!$isMinimalMenu) : ?>
 								<div class="submenu-column-title"><?php echo esc_html($column['column_title']); ?></div>
 								<?php endif; ?>
 								<?php if (!empty($column['column_links'])) : ?>

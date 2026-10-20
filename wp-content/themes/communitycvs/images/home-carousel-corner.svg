@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394" height="465" viewBox="0 0 394 465">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_189" data-name="Rectangle 189" width="394" height="465" transform="translate(1046 245)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_188" data-name="Rectangle 188" width="514.604" height="505.528" fill="#ff384a"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(-1046 -245)" opacity="0.198" clip-path="url(#clip-path)">
+    <g id="Group_276" data-name="Group 276" transform="translate(1047.854 284.93)">
+      <g id="Group_275" data-name="Group 275" clip-path="url(#clip-path-2)">
+        <path id="Path_210" data-name="Path 210" d="M179.2,2.148a152.815,152.815,0,0,0-92.556,253.46,153.522,153.522,0,0,1,3.716-18.13A122.239,122.239,0,1,1,311.9,143.323h-.047a152.117,152.117,0,0,1,39.778,31.571A152.908,152.908,0,0,0,179.2,2.148" transform="translate(123.834 1.73)" fill="#ff384a"/>
+        <path id="Path_211" data-name="Path 211" d="M14.068,126.13A152.806,152.806,0,0,0,226.521,292.474a152.863,152.863,0,0,1-16.092-9.13A122.238,122.238,0,1,1,189.34,43.555l-.014.04a152.243,152.243,0,0,1,42.317-28.072A152.906,152.906,0,0,0,14.068,126.13" transform="translate(30.489 -0.001)" fill="#ff384a"/>
+        <path id="Path_212" data-name="Path 212" d="M80.952,287.85A152.812,152.812,0,0,0,304.81,137.2a154.108,154.108,0,0,1-13.661,12.481A122.24,122.24,0,1,1,56.577,95.638l.04.029A152.167,152.167,0,0,1,42.992,46.745,152.906,152.906,0,0,0,80.952,287.85" transform="translate(0 121.879)" fill="#ff384a"/>
+        <path id="Path_213" data-name="Path 213" d="M274.545,315.814a152.814,152.814,0,0,0-74.1-259.456,153.392,153.392,0,0,1,7.651,16.85A122.238,122.238,0,1,1,84.209,279.6l.04-.025a152.21,152.21,0,0,1-50.737-2.161,152.905,152.905,0,0,0,241.033,38.4" transform="translate(87.376 146.943)" fill="#ff384a"/>
+        <path id="Path_214" data-name="Path 214" d="M333.28,120.9a152.811,152.811,0,0,0-269.654-9.7,153.165,153.165,0,0,1,18.386-2.067A122.239,122.239,0,1,1,240.02,290.73l-.014-.047a152.1,152.1,0,0,1-17.734,47.588A152.9,152.9,0,0,0,333.28,120.9" transform="translate(165.893 91.025)" fill="#ff384a"/>
+      </g>
+    </g>
+  </g>
+</svg>

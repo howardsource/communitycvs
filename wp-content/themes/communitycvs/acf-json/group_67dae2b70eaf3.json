@@ -142,6 +142,7 @@
                         "id": ""
                     },
                     "choices": {
+                        "default": "Default",
                         "lime-green": "Green",
                         "purple": "Purple",
                         "teal-blue": "Mid Blue",
@@ -151,7 +152,7 @@
                         "dark-blue": "Dark Blue",
                         "teal-green": "Teal"
                     },
-                    "default_value": "purple",
+                    "default_value": false,
                     "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
@@ -168,6 +169,11 @@
     ],
     "location": [
         [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "2"
+            },
             {
                 "param": "page",
                 "operator": "==",
@@ -199,5 +205,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779291605
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1789566694
 }

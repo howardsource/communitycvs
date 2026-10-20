@@ -33,7 +33,9 @@ module.exports = {
   reloadDelay: 0,
   files: [
     'wp-content/themes/communitycvs/css/**/*.css',
+    'wp-content/themes/lacvs/css/**/*.css',
     'wp-content/themes/communitycvs/**/*.php',
+    'wp-content/themes/lacvs/**/*.php',
     'wp-content/themes/communitycvs/js/**/*.js'
   ],
   snippetOptions: {

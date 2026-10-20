@@ -35,38 +35,6 @@
                 "id": ""
             },
             "layouts": {
-                "layout_62ecf7187358c": {
-                    "key": "layout_62ecf7187358c",
-                    "name": "columns",
-                    "label": "Columns",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_62ecf82f9b370",
-                            "label": "Columns",
-                            "name": "columns",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_62ecf71dcaa06"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_69b0375e0d122": {
                     "key": "layout_69b0375e0d122",
                     "name": "accordion",
@@ -99,6 +67,70 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_69b036bbc7fa2": {
+                    "key": "layout_69b036bbc7fa2",
+                    "name": "call_to_action",
+                    "label": "Call to Action",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69b036c2c7fa4",
+                            "label": "Call to Action",
+                            "name": "call_to_action",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_62ed234f3544f"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_62ecf7187358c": {
+                    "key": "layout_62ecf7187358c",
+                    "name": "columns",
+                    "label": "Columns",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_62ecf82f9b370",
+                            "label": "Columns",
+                            "name": "columns",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_62ecf71dcaa06"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_62ecf9d1c2e72": {
                     "key": "layout_62ecf9d1c2e72",
                     "name": "full_width_image",
@@ -121,98 +153,6 @@
                             },
                             "clone": [
                                 "group_62ecf98c43dd1"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_66fd25ba3373b": {
-                    "key": "layout_66fd25ba3373b",
-                    "name": "news_feed",
-                    "label": "News Feed",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_66fd25c53373d",
-                            "label": "",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "message",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "News feed goes here",
-                            "new_lines": "wpautop",
-                            "esc_html": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": "1"
-                },
-                "layout_6811d1f305708": {
-                    "key": "layout_6811d1f305708",
-                    "name": "team",
-                    "label": "Team",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6811d1f30570a",
-                            "label": "Team",
-                            "name": "team",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_6811d2188eb37"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_62ed101124b8a": {
-                    "key": "layout_62ed101124b8a",
-                    "name": "tiles",
-                    "label": "Tiles",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_62ed101524b8b",
-                            "label": "Tiles",
-                            "name": "tiles",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_62ed0f91416c6"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -261,16 +201,16 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_69b036bbc7fa2": {
-                    "key": "layout_69b036bbc7fa2",
-                    "name": "call_to_action",
-                    "label": "Call to Action",
+                "layout_69e883e5ff50a": {
+                    "key": "layout_69e883e5ff50a",
+                    "name": "illustrated_link_tiles",
+                    "label": "Illustrated Link Tiles",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_69b036c2c7fa4",
-                            "label": "Call to Action",
-                            "name": "call_to_action",
+                            "key": "field_69e883eeff50c",
+                            "label": "Tiles",
+                            "name": "tiles",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -282,40 +222,12 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_62ed234f3544f"
+                                "group_69e88391d548c"
                             ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_69b958accfa2d": {
-                    "key": "layout_69b958accfa2d",
-                    "name": "newsletter_signup",
-                    "label": "Newsletter Signup",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_69b958b9cfa30",
-                            "label": "Newsletter Module",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "message",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "The newsletter signup block will be placed here",
-                            "new_lines": "wpautop",
-                            "esc_html": 0
                         }
                     ],
                     "min": "",
@@ -404,14 +316,245 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_69e883e5ff50a": {
-                    "key": "layout_69e883e5ff50a",
-                    "name": "illustrated_link_tiles",
-                    "label": "Illustrated Link Tiles",
+                "layout_66fd25ba3373b": {
+                    "key": "layout_66fd25ba3373b",
+                    "name": "news_feed",
+                    "label": "News Feed",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_69e883eeff50c",
+                            "key": "field_66fd25c53373d",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "News feed goes here",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": "1"
+                },
+                "layout_69b958accfa2d": {
+                    "key": "layout_69b958accfa2d",
+                    "name": "newsletter_signup",
+                    "label": "Newsletter Signup",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69b958b9cfa30",
+                            "label": "Newsletter Module",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "The newsletter signup block will be placed here",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6ac8a6ca320c1": {
+                    "key": "layout_6ac8a6ca320c1",
+                    "name": "partners",
+                    "label": "Partners",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6ac8a705320c4",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "90",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6ac8a72e320c5",
+                            "label": "Show Title",
+                            "name": "show_title",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "10",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6ac8a746320c6",
+                            "label": "Partners",
+                            "name": "partners",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_6ac8a755320c7",
+                                    "label": "Partner Logo",
+                                    "name": "partner_logo",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium",
+                                    "parent_repeater": "field_6ac8a746320c6"
+                                },
+                                {
+                                    "key": "field_6ac8a7a3320c9",
+                                    "label": "Partner Name",
+                                    "name": "partner_name",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6ac8a746320c6"
+                                },
+                                {
+                                    "key": "field_6ac8a78f320c8",
+                                    "label": "Link URL",
+                                    "name": "link_url",
+                                    "aria-label": "",
+                                    "type": "url",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6ac8a746320c6"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6811d1f305708": {
+                    "key": "layout_6811d1f305708",
+                    "name": "team",
+                    "label": "Team",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6811d1f30570a",
+                            "label": "Team",
+                            "name": "team",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6811d2188eb37"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_62ed101124b8a": {
+                    "key": "layout_62ed101124b8a",
+                    "name": "tiles",
+                    "label": "Tiles",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_62ed101524b8b",
                             "label": "Tiles",
                             "name": "tiles",
                             "aria-label": "",
@@ -425,7 +568,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_69e88391d548c"
+                                "group_62ed0f91416c6"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -459,13 +602,6 @@
         ],
         [
             {
-                "param": "options_page",
-                "operator": "==",
-                "value": "menus"
-            }
-        ],
-        [
-            {
                 "param": "post_type",
                 "operator": "==",
                 "value": "news"
@@ -495,5 +631,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779202751
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1791535023
 }

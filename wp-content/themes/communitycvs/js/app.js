@@ -508,7 +508,7 @@ function initMobileMenuToggle() {
     });
 
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 1024) closeMenu();
+        if (window.innerWidth > 1200) closeMenu();
     });
 }
 

@@ -110,6 +110,7 @@
                 "id": ""
             },
             "choices": {
+                "default": "Default",
                 "lime-green": "Green",
                 "purple": "Purple",
                 "teal-blue": "Mid Blue",
@@ -119,7 +120,7 @@
                 "dark-blue": "Dark Blue",
                 "teal-green": "Teal"
             },
-            "default_value": "teal-blue",
+            "default_value": "default",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -168,5 +169,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1779291554
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1789637566
 }

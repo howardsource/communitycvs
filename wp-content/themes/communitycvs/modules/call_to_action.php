@@ -8,7 +8,7 @@
 			<div class="text">
 				<h3><?= $module['title']; ?></h3>	
 				<?= $module['text']; ?>
-				<p class="button-link outline<?php if($module['background_colour'] != 'orange-yellow' && $module['background_colour'] != 'lime-green' ) : ?> white<?php endif; ?>"><a href="<?= $module['link']; ?>"><?= $module['link_text']; ?></a></p>
+				<p class="button-link outline<?php if($module['background_colour'] != 'default' && $module['background_colour'] != 'orange-yellow' && $module['background_colour'] != 'lime-green' ) : ?> white<?php endif; ?>"><a href="<?= $module['link']; ?>"><?= $module['link_text']; ?></a></p>
 			</div>
 		</div>
 	</div>	
