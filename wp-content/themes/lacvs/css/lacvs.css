@@ -177,6 +177,20 @@ body.page .site-main {
   background-color: #5C0336;
   z-index: 0;
 }
+.home-carousel.outer .home-carousel-slide-inner::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(394px, 28vw);
+  aspect-ratio: 394/465;
+  background-image: url("../images/home-carousel-corner.svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
 .home-carousel.outer .home-carousel-slide-inner.default {
   background-color: #5C0336;
 }
