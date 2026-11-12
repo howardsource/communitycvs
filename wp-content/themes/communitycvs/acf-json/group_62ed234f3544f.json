@@ -110,7 +110,7 @@
             "aria-label": "",
             "type": "page_link",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -119,8 +119,6 @@
             },
             "post_type": [
                 "page",
-                "artists",
-                "venues",
                 "news"
             ],
             "post_status": "",
@@ -138,17 +136,25 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62ed237957848",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "default_value": "Find out more",
+            "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_62ed2407646d5",
@@ -284,5 +290,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789632611
+    "modified": 1794476549
 }

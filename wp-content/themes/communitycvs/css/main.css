@@ -186,6 +186,7 @@ li {
   margin-bottom: 1.6rem;
 }
 
+.large-button a,
 .button-link a {
   display: inline-block;
   padding: 1rem 2.4rem 1.2rem 2.4rem;
@@ -199,29 +200,45 @@ li {
   border: 1px solid #060C1D;
   transition: all 0.3s ease-in-out;
 }
+.large-button.outline a,
 .button-link.outline a {
   background-color: transparent;
 }
+.large-button.outline a:hover,
 .button-link.outline a:hover {
   background-color: white;
   color: #060C1D;
 }
+.large-button.solid a,
 .button-link.solid a {
   background-color: #060C1D;
   color: #fff;
 }
+.large-button.white a,
 .button-link.white a {
   border-color: #fff;
   color: #fff;
 }
+.large-button.blue a,
 .button-link.blue a {
   background-color: #29317B;
   color: #fff;
 }
+.large-button.blue a:hover,
 .button-link.blue a:hover {
   border-color: white;
   background-color: white;
   color: #29317B;
+}
+
+.large-button a {
+  font-size: 2.4rem;
+  height: 4.8rem;
+  padding: 1.6rem 2.4rem 2rem 2.4rem;
+  text-decoration: none !important;
+  color: #29317B !important;
+  border-color: #29317B !important;
+  text-transform: uppercase;
 }
 
 .link-button a {
@@ -2322,9 +2339,6 @@ body.page .site-main {
   overflow: visible;
   filter: drop-shadow(0px 6px 9px rgba(0, 0, 0, 0.15));
 }
-#modules .tiles.card-type-image.card-layout-2-col .tiles-composite .tile-group {
-  padding: 0;
-}
 #modules .tiles.card-type-image.card-layout-2-col .tiles-composite::before, #modules .tiles.card-type-image.card-layout-2-col .tiles-composite::after {
   content: "";
   position: absolute;
@@ -2346,6 +2360,8 @@ body.page .site-main {
   background-position: left bottom;
 }
 #modules .tiles.card-type-image.card-layout-2-col .module-title {
+  max-width: 100%;
+  border-top: 0;
   background-color: #fff;
   border-radius: 12px 12px 0 0;
   padding: 72px 32px 24px 32px;
@@ -2353,6 +2369,7 @@ body.page .site-main {
   text-align: center;
 }
 #modules .tiles.card-type-image.card-layout-2-col .module-title h2 {
+  padding-top: 0;
   font-size: 6.8rem;
   margin: 0 0 2rem 0;
 }

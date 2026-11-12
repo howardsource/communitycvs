@@ -124,7 +124,7 @@ li {
     line-height: clamp(2.4rem, 2.17vw, 2.6rem);
     margin-bottom: 1.6rem;
 }
-
+.large-button,
 .button-link {
     a {
         display: inline-block;
@@ -171,6 +171,17 @@ li {
             }
         }
     }
+}
+
+.large-button a {
+
+    font-size: 2.4rem;
+    height: 4.8rem;
+    padding: 1.6rem 2.4rem 2rem 2.4rem;
+    text-decoration: none !important;
+    color: $c_dark-blue !important;
+    border-color: $c_dark-blue !important;
+    text-transform: uppercase;
 }
 
 .link-button {
@@ -2300,9 +2311,6 @@ body.page .site-main {
                     z-index: 1;
                     overflow: visible;
                     filter: drop-shadow(0px 6px 9px rgba(0, 0, 0, 0.15));
-                    .tile-group {
-                        padding: 0;
-                    }
                     &::before,
                     &::after {
                         content: '';
@@ -2326,12 +2334,19 @@ body.page .site-main {
                     }
                 }
                 .module-title {
+                    // The generic `#modules .module-title` rule caps titles at 1073px
+                    // and adds a hairline + h2 padding. Inside the composite the title
+                    // sits directly on top of the tile panel, so it has to be the same
+                    // width as that panel. These overrides restore the original sizing.
+                    max-width: 100%;
+                    border-top: 0;
                     background-color: #fff;
                     border-radius: 12px 12px 0 0;
                     padding: 72px 32px 24px 32px;
                     margin-bottom: 0;
                     text-align: center;
                     h2 {
+                        padding-top: 0;
                         font-size: 6.8rem;
                         margin: 0 0 2rem 0;
                     }

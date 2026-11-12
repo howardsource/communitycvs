@@ -268,6 +268,9 @@ body.page .site-main {
 #modules .tiles.card-type-image.default {
   background-color: transparent;
 }
+#modules .tiles.card-type-image.card-layout-2-col .tiles-composite .tile-group {
+  padding: 0;
+}
 #modules .tiles.card-type-image.card-layout-2-col.default .tiles-composite {
   border: none;
   filter: none;

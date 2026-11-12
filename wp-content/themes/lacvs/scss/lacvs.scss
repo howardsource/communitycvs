@@ -314,6 +314,13 @@ body.page .site-main {
     &.default {
         background-color: transparent;
     }
+    // LACVS renders the 2-col composite without the white panel, so the tiles
+    // stay flush. The parent's 72px/32px panel padding no longer applies here.
+    &.card-layout-2-col {
+        .tiles-composite .tile-group {
+            padding: 0;
+        }
+    }
     &.card-layout-2-col.default {
         .tiles-composite {
             border: none;
