@@ -32,7 +32,7 @@ if (!isset($module) || empty($module['team']) || !is_array($module['team'])) {
 					Telephone <a href="tel:<?= esc_attr($telephoneHref); ?>"><?= esc_html($telephoneRaw); ?></a><?php if (!empty($tile['email'])) : ?><br /><?php endif; ?>
 					<?php endif; ?>
 					<?php if (!empty($tile['email'])) : ?>
-					<a href="mailto:<?= esc_attr($tile['email']); ?>">Email <?= $tile['name']; ?></a>
+					Email <a href="mailto:<?= esc_attr($tile['email']); ?>"><?= $tile['name']; ?></a>
 					<?php endif; ?>
 				</div>
 				<div class="bio" id="<?= $bioId; ?>" hidden><?= $tile['bio']; ?></div>

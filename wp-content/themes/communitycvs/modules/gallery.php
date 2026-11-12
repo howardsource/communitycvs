@@ -1,44 +1,29 @@
 <?php 
 	/** @var array $module */
+	$galleryImages = isset($module['gallery']) && is_array($module['gallery']) ? $module['gallery'] : array();
 ?>
 <div class="module gallery outer <?= $module['background_colour']; ?>">
 	<div class="inner">
-		<div id="gallery-<?= $modN; ?>" class="swiper">
-			<div class="swiper-wrapper">
-			<?php foreach($module['gallery'] as $image) : ?>
-				<div class="swiper-slide">
-					<img src="<?= $image['sizes']['carousel']; ?>" width="<?= $image['sizes']['carousel-width']; ?>" height="<?= $image['sizes']['carousel-height']; ?>" alt="<?= $image['alt']; ?>" />
-					<?php if($image['caption']!='') : ?>
-						<div class="caption"><?= $image['caption']; ?></div>
-					<?php endif; ?>
+		<div class="gallery-slider" id="gallery-<?= $modN; ?>" data-autoplay="5000">
+			<div class="gallery-slider-viewport">
+				<div class="gallery-slider-track">
+					<?php foreach($galleryImages as $image) : ?>
+					<figure class="gallery-slide">
+						<img src="<?= $image['sizes']['carousel']; ?>" width="<?= $image['sizes']['carousel-width']; ?>" height="<?= $image['sizes']['carousel-height']; ?>" alt="<?= $image['alt']; ?>" />
+						<?php if($image['caption']!='') : ?>
+							<figcaption class="caption"><?= $image['caption']; ?></figcaption>
+						<?php endif; ?>
+					</figure>
+					<?php endforeach; ?>
 				</div>
-			<?php endforeach; ?>
 			</div>
-			<div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
-			<div class="swiper-pagination"></div>
+			<div class="gallery-slider-controls">
+				<span class="gallery-slider-counter"></span>
+				<div class="gallery-slider-nav">
+					<button type="button" class="gallery-nav gallery-prev" aria-label="Previous image" aria-controls="gallery-<?= $modN; ?>">&#8249;</button>
+					<button type="button" class="gallery-nav gallery-next" aria-label="Next image" aria-controls="gallery-<?= $modN; ?>">&#8250;</button>
+				</div>
+			</div>
 		</div>
-		
 	</div>
 </div>
-<script>
-	var swiper = new Swiper('#gallery-<?= $modN; ?>', {
-		slidesPerView: 1,
-		loop: false,
-		speed: 700,
-		
-		  navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		  },
-		pagination: {
-			el: '.swiper-pagination',
-			type: 'custom',
-			renderCustom: function (swiper, current, total) {
-			  return `${current} / ${total}`;
-			}
-		  },
-		autoplay: {
-			delay: 5000,
-		}
-	});
-</script>

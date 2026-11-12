@@ -2844,6 +2844,83 @@ body.page .site-main {
             }
         }
     }
+    .gallery {
+        // Only top/bottom padding, so the `.outer` side gutter is preserved
+        padding-top: clamp(4rem, 6.66vw, 8rem);
+        padding-bottom: clamp(4rem, 6.66vw, 8rem);
+        .gallery-slider {
+            position: relative;
+            max-width: 1296px;
+            margin: 0 auto;
+        }
+        .gallery-slider-viewport {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .gallery-slider-track {
+            display: flex;
+            align-items: flex-start;
+            transition: transform 400ms ease-in-out;
+            will-change: transform;
+        }
+        .gallery-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+        .caption {
+            padding-top: 1.2rem;
+            color: $c_dark-blue;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+        }
+        .gallery-slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            margin-top: 1.6rem;
+        }
+        .gallery-slider-counter {
+            color: $c_dark-blue;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            font-weight: 700;
+        }
+        .gallery-slider-nav {
+            display: flex;
+            gap: 8px;
+        }
+        .gallery-nav {
+            width: 40px;
+            height: 40px;
+            border: 0;
+            border-radius: 50%;
+            background: $c_dark-grey;
+            color: #fff;
+            cursor: pointer;
+            font-size: 2.2rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 120ms ease-in-out;
+            &:hover:not(:disabled) {
+                background: $c_dark-blue;
+            }
+            &:disabled {
+                opacity: 0.4;
+                cursor: default;
+            }
+        }
+    }
     // Keep every module's content inside the window with a 24px gutter either side.
     // These modules set a `padding` shorthand whose horizontal `0` overrides the
     // `.outer` gutter (because `#modules .<module>` outranks `.outer`), so the

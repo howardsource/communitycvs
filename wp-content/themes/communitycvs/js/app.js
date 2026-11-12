@@ -422,6 +422,74 @@ if (document.readyState === 'loading') {
     initSingleNewsGallerySlideshows();
 }
 
+function initModuleGalleries() {
+    const sliders = document.querySelectorAll('.module.gallery .gallery-slider');
+    if (!sliders.length) return;
+
+    sliders.forEach((slider) => {
+        if (slider.dataset.sliderReady === 'true') return;
+
+        const track = slider.querySelector('.gallery-slider-track');
+        const slides = slider.querySelectorAll('.gallery-slide');
+        if (!track || !slides.length) return;
+
+        slider.dataset.sliderReady = 'true';
+
+        const total = slides.length;
+        const counter = slider.querySelector('.gallery-slider-counter');
+        const prev = slider.querySelector('.gallery-prev');
+        const next = slider.querySelector('.gallery-next');
+        let index = 0;
+        let timer = null;
+
+        const update = () => {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            if (counter) counter.textContent = `${index + 1} / ${total}`;
+            if (prev) prev.disabled = index === 0;
+            if (next) next.disabled = index === total - 1;
+        };
+
+        const stopAutoplay = () => {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        };
+
+        const startAutoplay = () => {
+            const delay = parseInt(slider.dataset.autoplay, 10);
+            stopAutoplay();
+            if (!delay || total < 2) return;
+            timer = setInterval(() => {
+                if (index >= total - 1) {
+                    stopAutoplay();
+                    return;
+                }
+                index++;
+                update();
+            }, delay);
+        };
+
+        const goTo = (newIndex) => {
+            index = Math.max(0, Math.min(newIndex, total - 1));
+            update();
+            startAutoplay();
+        };
+
+        if (prev) prev.addEventListener('click', () => goTo(index - 1));
+        if (next) next.addEventListener('click', () => goTo(index + 1));
+
+        update();
+        startAutoplay();
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initModuleGalleries);
+} else {
+    initModuleGalleries();
+}
+
 function initSingleNewsRawEmbeds() {
     const embeds = document.querySelectorAll('.single-news #modules .news-content .inner iframe');
     if (!embeds.length) return;
