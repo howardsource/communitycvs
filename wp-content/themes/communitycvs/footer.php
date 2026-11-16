@@ -14,14 +14,24 @@
                 aria-controls="contact-modal"
             >Contact Us</a>
             <ul class="footer-menu">
-                <li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">About Us</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/grants/' ) ); ?>">Grants</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/networks/' ) ); ?>">Networks</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/training/' ) ); ?>">Training</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/events/' ) ); ?>">Events</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/volunteering/' ) ); ?>">Volunteering</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/jobs/' ) ); ?>">Jobs</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">News</a></li>
+                <?php $footerMenu = get_field( 'footer_menu', 'options' ); ?>
+                <?php if ( $footerMenu ) : ?>
+                    <?php foreach ( $footerMenu as $item ) : ?>
+                        <?php if ( empty( $item['title'] ) || empty( $item['link'] ) ) : ?>
+                            <?php continue; ?>
+                        <?php endif; ?>
+                        <li><a href="<?php echo esc_url( $item['link'] ); ?>"><?php echo esc_html( $item['title'] ); ?></a></li>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">About Us</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/grants/' ) ); ?>">Grants</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/networks/' ) ); ?>">Networks</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/training/' ) ); ?>">Training</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/events/' ) ); ?>">Events</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/volunteering/' ) ); ?>">Volunteering</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/jobs/' ) ); ?>">Jobs</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">News</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
         <div class="footer-bottom">
@@ -34,7 +44,12 @@
                     <li><a class="footer-social-link x" href="https://x.com/CommunityCVS" aria-label="X">X</a></li>
                 </ul>
             </div>
-            <p class="footer-legals"><span class="copyright">&copy; Copyright CommunityCVS <?php echo date( 'Y' ); ?></span> | <a href="#">Privacy Policy</a> | <a href="#">Accessibility</a> | <a href="#">Customer Care Policy</a> | <a href="#">Data Privacy Notice</a></p>
+            <?php $footerLegals = get_field( 'footer_legals', 'options' ); ?>
+            <?php if ( $footerLegals ) : ?>
+                <div class="footer-legals"><?php echo wp_kses_post( $footerLegals ); ?></div>
+            <?php else : ?>
+                <p class="footer-legals"><span class="copyright">&copy; Copyright CommunityCVS <?php echo date( 'Y' ); ?></span> | <a href="#">Privacy Policy</a> | <a href="#">Accessibility</a> | <a href="#">Customer Care Policy</a> | <a href="#">Data Privacy Notice</a></p>
+            <?php endif; ?>
         </div>
     </div>
 </footer>

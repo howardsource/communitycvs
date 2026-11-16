@@ -1330,6 +1330,12 @@ body.page .site-main {
   font-size: 1.4rem;
   line-height: 1.8rem;
 }
+.site-footer .footer-legals p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
 .site-footer .footer-legals span, .site-footer .footer-legals a {
   margin: 0 10px;
   color: #B0C4CE;

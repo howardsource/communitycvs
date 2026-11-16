@@ -1296,6 +1296,14 @@ body.page .site-main {
         color: #B0C4CE;
         font-size: 1.4rem;
         line-height: 1.8rem;
+        // The legals are a wysiwyg field, so its paragraph inherits the site
+        // defaults unless they are reset here.
+        p {
+            margin: 0;
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+        }
         span, a {
             margin: 0 10px;
             color: $c_blue-grey-light;
