@@ -7,8 +7,9 @@ function communitycvs_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
     add_image_size( 'carousel', 1920, 1080, true );
-    // Un-cropped variant for galleries, which need the original aspect ratio.
-    add_image_size( 'gallery', 1920, 1920, false );
+    // Un-cropped variant for images that must not have their edges trimmed
+    // (galleries, "contain" images). Keeps the original aspect ratio.
+    add_image_size( 'uncropped', 1920, 1920, false );
     add_image_size( 'half-width', 800, 450, true );
     add_image_size( 'half-width-full', 800, 99999999, false );
     add_image_size( 'two-col', 594, 446, true );

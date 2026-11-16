@@ -11,10 +11,10 @@
 					<figure class="gallery-slide">
 						<?php
 							// `carousel` is a hard 16:9 crop, which chops portrait
-							// shots, so use the un-cropped `gallery` size instead.
-							// Images uploaded before that size existed fall back to
-							// the original file, which is still un-cropped.
-							echo wp_get_attachment_image( $image['ID'], 'gallery', false, array( 'alt' => $image['alt'] ) );
+							// shots, so use the un-cropped size instead. Images
+							// uploaded before that size existed fall back to the
+							// original file, which is still un-cropped.
+							echo wp_get_attachment_image( $image['ID'], 'uncropped', false, array( 'alt' => $image['alt'] ) );
 						?>
 						<?php if($image['caption']!='') : ?>
 							<figcaption class="caption"><?= $image['caption']; ?></figcaption>
