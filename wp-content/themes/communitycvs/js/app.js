@@ -445,8 +445,6 @@ function initModuleGalleries() {
         const update = () => {
             track.style.transform = `translateX(-${index * 100}%)`;
             if (counter) counter.textContent = `${index + 1} / ${total}`;
-            if (prev) prev.disabled = index === 0;
-            if (next) next.disabled = index === total - 1;
         };
 
         const stopAutoplay = () => {
@@ -461,17 +459,16 @@ function initModuleGalleries() {
             stopAutoplay();
             if (!delay || total < 2) return;
             timer = setInterval(() => {
-                if (index >= total - 1) {
-                    stopAutoplay();
-                    return;
-                }
-                index++;
+                // Wrap round to the first slide so the loop never stops.
+                index = (index + 1) % total;
                 update();
             }, delay);
         };
 
         const goTo = (newIndex) => {
-            index = Math.max(0, Math.min(newIndex, total - 1));
+            // Wrap round, so next on the last slide returns to the first and
+            // prev on the first slide jumps to the last.
+            index = (newIndex + total) % total;
             update();
             startAutoplay();
         };

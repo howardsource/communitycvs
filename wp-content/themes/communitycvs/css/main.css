@@ -1511,7 +1511,7 @@ body.page .site-main {
   background-position: 130% 50%;
 }
 .title-banner.has-image .inner {
-  padding-right: calc(50% + 36px);
+  padding-right: calc(min(50vw - 4rem, 648px) + 36px);
 }
 .title-banner.has-image .banner-image {
   position: absolute;
@@ -1527,6 +1527,7 @@ body.page .site-main {
   z-index: 3;
 }
 .title-banner.contain-image.has-image .banner-image {
+  height: 100%;
   background-size: contain;
   background-position: right center;
 }
@@ -2854,11 +2855,10 @@ body.page .site-main {
 #modules .gallery .gallery-slider-viewport {
   width: 100%;
   overflow: hidden;
-  border-radius: 12px;
 }
 #modules .gallery .gallery-slider-track {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   transition: transform 400ms ease-in-out;
   will-change: transform;
 }
@@ -2867,13 +2867,21 @@ body.page .site-main {
   width: 100%;
   max-width: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 #modules .gallery .gallery-slide img {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 745px;
+  border-radius: 12px;
 }
 #modules .gallery .caption {
+  align-self: stretch;
   padding-top: 1.2rem;
   color: #29317B;
   font-size: 1.3rem;
@@ -2911,12 +2919,8 @@ body.page .site-main {
   justify-content: center;
   transition: background-color 120ms ease-in-out;
 }
-#modules .gallery .gallery-nav:hover:not(:disabled) {
+#modules .gallery .gallery-nav:hover {
   background: #29317B;
-}
-#modules .gallery .gallery-nav:disabled {
-  opacity: 0.4;
-  cursor: default;
 }
 @media (max-width: 1200px) {
   #modules .columns,

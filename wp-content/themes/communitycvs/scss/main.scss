@@ -1467,7 +1467,15 @@ body.page .site-main {
             }
         }
         .inner {
-            padding-right: calc(50% + 36px);
+            // `50%` on padding resolves against the full-bleed `.band` (100vw),
+            // but the image it clears is `width: 50%` of the `.inner`, which is
+            // capped at 1296px. On wide windows the padding therefore kept
+            // growing while the inner stopped, squeezing the h2 into a sliver.
+            // Half of the inner's used width is `min(50vw - 4rem, 648px)`
+            // (4rem = half of the inner's 8rem total side allowance, 648px =
+            // half of its 1296px max). That keeps the title filling the full
+            // left half, right up to the image, at any window size.
+            padding-right: calc(min(50vw - 4rem, 648px) + 36px);
         }
         .banner-image {
             position: absolute;
@@ -1485,6 +1493,10 @@ body.page .site-main {
     }
     &.contain-image.has-image {
         .banner-image {
+            // The default `.banner-image` is 460px tall inside a 400px band so
+            // it overspills the top edge. With "contain image" the whole image
+            // has to sit inside the band, so match the band height here.
+            height: 100%;
             background-size: contain;
             background-position: right center;
         }
@@ -2864,11 +2876,12 @@ body.page .site-main {
         .gallery-slider-viewport {
             width: 100%;
             overflow: hidden;
-            border-radius: 12px;
         }
         .gallery-slider-track {
             display: flex;
-            align-items: flex-start;
+            // Stretch every slide to the tallest one so shorter images can be
+            // centred against it rather than sitting at the top.
+            align-items: stretch;
             transition: transform 400ms ease-in-out;
             will-change: transform;
         }
@@ -2877,13 +2890,27 @@ body.page .site-main {
             width: 100%;
             max-width: 100%;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             img {
                 display: block;
-                width: 100%;
+                // Contain the image rather than cropping or squashing it: the box
+                // hugs the image so the aspect ratio is kept and the rounded
+                // corners land on the picture itself. Portrait shots are capped
+                // by height and centred in the slide by the flex rules above.
+                width: auto;
                 height: auto;
+                max-width: 100%;
+                max-height: 745px;
+                border-radius: 12px;
             }
         }
         .caption {
+            // The slide is a centred column flex container, so the caption has
+            // to opt out of that to span the full width and stay ranged left.
+            align-self: stretch;
             padding-top: 1.2rem;
             color: $c_dark-blue;
             font-size: 1.3rem;
@@ -2920,12 +2947,8 @@ body.page .site-main {
             align-items: center;
             justify-content: center;
             transition: background-color 120ms ease-in-out;
-            &:hover:not(:disabled) {
+            &:hover {
                 background: $c_dark-blue;
-            }
-            &:disabled {
-                opacity: 0.4;
-                cursor: default;
             }
         }
     }

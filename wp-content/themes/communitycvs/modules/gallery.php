@@ -9,7 +9,13 @@
 				<div class="gallery-slider-track">
 					<?php foreach($galleryImages as $image) : ?>
 					<figure class="gallery-slide">
-						<img src="<?= $image['sizes']['carousel']; ?>" width="<?= $image['sizes']['carousel-width']; ?>" height="<?= $image['sizes']['carousel-height']; ?>" alt="<?= $image['alt']; ?>" />
+						<?php
+							// `carousel` is a hard 16:9 crop, which chops portrait
+							// shots, so use the un-cropped `gallery` size instead.
+							// Images uploaded before that size existed fall back to
+							// the original file, which is still un-cropped.
+							echo wp_get_attachment_image( $image['ID'], 'gallery', false, array( 'alt' => $image['alt'] ) );
+						?>
 						<?php if($image['caption']!='') : ?>
 							<figcaption class="caption"><?= $image['caption']; ?></figcaption>
 						<?php endif; ?>
