@@ -14,7 +14,7 @@ if (!isset($module) || empty($module['team']) || !is_array($module['team'])) {
 		<?php $teamIndex++; $bioId = 'team-bio-' . $modN . '-' . $teamIndex; ?>
 		<div class="team-member reveal" role="button" tabindex="0" aria-expanded="false" aria-controls="<?= $bioId; ?>">
 			<?php if (!empty($tile['thumbnail']['sizes']['half-width'])) : ?>
-			<div class="image-outer"><div class="image" style="background-image: url(<?= $tile['thumbnail']['sizes']['half-width']; ?>)"></div></div>
+			<div class="image-outer"><div class="image" style="background-image: url(<?= $tile['thumbnail']['sizes']['team']; ?>)"></div></div>
 			<?php endif; ?>
 			<div class="text-outer">
 				<h4><?= $tile['name']; ?></h4>
