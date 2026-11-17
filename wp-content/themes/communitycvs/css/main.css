@@ -1596,7 +1596,7 @@ body.page .site-main {
   padding-top: clamp(3rem, 5vw, 6rem);
 }
 #breadcrumbs + #modules > .columns:first-child, .title-banner + #breadcrumbs + #modules > .columns:first-child {
-  padding-top: clamp(5rem, 11.67vw, 14rem);
+  padding-top: clamp(2rem, 8vh, 8rem);
 }
 #modules .partners {
   padding-top: clamp(5rem, 8.33vw, 10rem);
