@@ -2035,6 +2035,12 @@ body.page .site-main {
 #modules .news-lists .news-tile.resource .category-band {
   background-color: #91BC3D;
 }
+#modules .news-lists .news-tile.community-asset-fund .category-band {
+  background-color: #5C737E;
+}
+#modules .news-lists .news-tile.community-cvs-business-network .category-band {
+  background-color: #91BC3D;
+}
 #modules .news-lists .news-tile.volunteer .category-band,
 #modules .news-lists .news-tile.community-volunteer-awards .category-band {
   background-color: #972685;
@@ -2049,6 +2055,10 @@ body.page .site-main {
 }
 #modules .news-lists .news-tile.community-accountancy .category-band {
   background-color: #10726B;
+}
+#modules .news-lists .news-tile.community-volunteer-awards .category-band,
+#modules .news-lists .news-tile.volunteers-week .category-band {
+  background-color: #972685;
 }
 #modules .news-lists .news-tile .description {
   padding: 20px;

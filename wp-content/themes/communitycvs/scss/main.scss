@@ -2022,6 +2022,12 @@ body.page .site-main {
         .news-tile.resource .category-band {
             background-color: $c_lime-green;
         }
+        .news-tile.community-asset-fund .category-band {
+            background-color: $c_dark-grey;
+        }
+        .news-tile.community-cvs-business-network .category-band {
+            background-color: $c_lime-green;
+        }
         .news-tile.volunteer .category-band,
         .news-tile.community-volunteer-awards .category-band {
             background-color: $c_purple;
@@ -2036,6 +2042,10 @@ body.page .site-main {
         }
         .news-tile.community-accountancy .category-band {
             background-color: $c_teal-green;
+        }
+        .news-tile.community-volunteer-awards .category-band,
+        .news-tile.volunteers-week .category-band {
+            background-color: $c_purple;
         }
         .news-tile .description {
             padding: 20px;
