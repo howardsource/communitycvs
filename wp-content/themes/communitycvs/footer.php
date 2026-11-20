@@ -39,9 +39,8 @@
                 <h4>Follow Us</h4>
                 <ul class="footer-social">
                     <li><a class="footer-social-link facebook" href="https://www.facebook.com/Communitycvs" aria-label="Facebook">Facebook</a></li>
-                    <li><a class="footer-social-link instagram" href="https://www.instagram.com/cvscommunity/" aria-label="Instagram">Instagram</a></li>
+                    <li><a class="footer-social-link instagram" href="https://www.instagram.com/newcommunitycvs/" aria-label="Instagram">Instagram</a></li>
                     <li><a class="footer-social-link linkedin" href="https://www.linkedin.com/company/blackburn-with-darwen-cvs/" aria-label="LinkedIn">LinkedIn</a></li>
-                    <li><a class="footer-social-link x" href="https://x.com/CommunityCVS" aria-label="X">X</a></li>
                 </ul>
             </div>
             <?php $footerLegals = get_field( 'footer_legals', 'options' ); ?>

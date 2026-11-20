@@ -49,9 +49,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </ul>
                 <ul class="social-links">
                     <li class="social-facebook"><a href="https://www.facebook.com/Communitycvs" aria-label="Facebook">FB</a></li>
-                    <li class="social-instagram"><a href="https://www.instagram.com/cvscommunity/" aria-label="Instagram">IG</a></li>
+                    <li class="social-instagram"><a href="https://www.instagram.com/newcommunitycvs/" aria-label="Instagram">IG</a></li>
 					<li class="social-linkedin"><a href="https://www.linkedin.com/company/blackburn-with-darwen-cvs/" aria-label="LinkedIn">LI</a></li>
-					<li class="social-x"><a href="https://x.com/CommunityCVS" aria-label="X">X</a></li>
                 </ul>
                 <div class="contact-button">
 					<a

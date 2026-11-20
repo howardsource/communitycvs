@@ -1394,6 +1394,9 @@ body.page .site-main {
 .title-banner {
     background-color: #fff;
     padding: 0;
+    &.outer {
+        background-color: #fff !important;
+    }
     h2 {
         color: white;
         font-size: clamp(3.4rem, 5.67vw, 6.8rem);
@@ -1584,7 +1587,7 @@ body.page .site-main {
     }
     #breadcrumbs + & > .columns:first-child,
     .title-banner + #breadcrumbs + & > .columns:first-child {
-        padding-top: clamp(2rem, 8vh, 8rem);
+        padding-top: clamp(2rem, 8vh, 12rem);
     }
     .partners {
         padding-top: clamp(5rem, 8.33vw, 10rem);
@@ -2079,7 +2082,12 @@ body.page .site-main {
             max-width: calc(50% - 15px);
         }
         .image-column {
-            aspect-ratio: 5 / 4;
+            // The flex container stretches its items by default, and a stretched
+            // cross size overrides `aspect-ratio`, so the image box grew to the
+            // text column's height in Chrome. Opting out of the stretch lets the
+            // ratio set the height, and the box sits at the top of the row.
+            align-self: start;
+            
             border-radius: 12px;
             background-size: cover;
             background-position: center center;
