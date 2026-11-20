@@ -1278,7 +1278,7 @@ body.page .site-main {
   display: grid;
   grid-template-columns: 264px 1fr;
   column-gap: 40px;
-  margin-top: 14rem;
+  margin-top: 8rem;
   align-items: end;
 }
 .site-footer .footer-follow h4 {
