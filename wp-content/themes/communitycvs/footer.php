@@ -16,11 +16,16 @@
             <ul class="footer-menu">
                 <?php $footerMenu = get_field( 'footer_menu', 'options' ); ?>
                 <?php if ( $footerMenu ) : ?>
+                    <?php $hasLink = false; ?>
                     <?php foreach ( $footerMenu as $item ) : ?>
                         <?php if ( empty( $item['title'] ) || empty( $item['link'] ) ) : ?>
                             <?php continue; ?>
                         <?php endif; ?>
+                        <?php if ( $hasLink && ! empty( $item['start_row'] ) ) : ?>
+                            <li class="footer-menu-break" aria-hidden="true"></li>
+                        <?php endif; ?>
                         <li><a href="<?php echo esc_url( $item['link'] ); ?>"><?php echo esc_html( $item['title'] ); ?></a></li>
+                        <?php $hasLink = true; ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">About Us</a></li>

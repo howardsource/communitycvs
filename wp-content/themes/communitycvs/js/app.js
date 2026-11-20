@@ -16,6 +16,8 @@ document.addEventListener('click', (event) => {
 });
 
 function toggleTeamMember(member) {
+    if (member.classList.contains('no-bio')) return;
+
     const bio = member.querySelector('.bio');
     if (!bio) return;
 

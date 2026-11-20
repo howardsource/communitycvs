@@ -531,6 +531,7 @@
                     "collapsed": "",
                     "button_label": "Add Row",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_6aad0b7a9457f",
                     "sub_fields": [
                         {
                             "key": "field_6aad0b7a94592",
@@ -552,6 +553,7 @@
                             "collapsed": "",
                             "button_label": "Add Row",
                             "rows_per_page": 20,
+                            "parent_repeater": "field_6aad0b7a9458d",
                             "sub_fields": [
                                 {
                                     "key": "field_6aad0b7a94593",
@@ -603,11 +605,9 @@
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_6aad0b7a94592"
                                 }
-                            ],
-                            "parent_repeater": "field_6aad0b7a9458d"
+                            ]
                         }
-                    ],
-                    "parent_repeater": "field_6aad0b7a9457f"
+                    ]
                 }
             ]
         },
@@ -661,7 +661,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "45",
                         "class": "",
                         "id": ""
                     },
@@ -683,7 +683,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "45",
                         "class": "",
                         "id": ""
                     },
@@ -697,6 +697,28 @@
                     "multiple": 0,
                     "allow_null": 0,
                     "allow_in_bindings": 0,
+                    "parent_repeater": "field_6914a2b1c3d02"
+                },
+                {
+                    "key": "field_6b002f70cb7fa",
+                    "label": "Start Row",
+                    "name": "start_row",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "5",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
                     "parent_repeater": "field_6914a2b1c3d02"
                 }
             ]
@@ -743,5 +765,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794495671
+    "modified": 1795174287
 }
