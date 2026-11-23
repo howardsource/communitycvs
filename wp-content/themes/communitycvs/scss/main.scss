@@ -2101,15 +2101,17 @@ body.page .site-main {
             max-width: calc(50% - 15px);
         }
         .image-column {
-            // The flex container stretches its items by default, and a stretched
-            // cross size overrides `aspect-ratio`, so the image box grew to the
-            // text column's height in Chrome. Opting out of the stretch lets the
-            // ratio set the height, and the box sits at the top of the row.
+            // The flex container stretches its items by default, so opt out and
+            // let the image's own height set the row height.
             align-self: start;
-            
-            border-radius: 12px;
-            background-size: cover;
-            background-position: center center;
+            img {
+                // Keep the image's own proportions: never wider than the column,
+                // with the height following the ratio.
+                display: block;
+                max-width: 100%;
+                height: auto;
+                border-radius: 12px;
+            }
         }
         @media (max-width: 900px) {
             row-gap: 3.6rem;

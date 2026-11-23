@@ -2113,9 +2113,12 @@ body.page .site-main {
 }
 #modules .two-columns .image-column {
   align-self: start;
+}
+#modules .two-columns .image-column img {
+  display: block;
+  max-width: 100%;
+  height: auto;
   border-radius: 12px;
-  background-size: cover;
-  background-position: center center;
 }
 @media (max-width: 900px) {
   #modules .two-columns {

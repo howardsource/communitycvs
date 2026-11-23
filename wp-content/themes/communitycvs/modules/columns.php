@@ -21,13 +21,17 @@
 	<?php else : ?>
 	<div class="inner column-group <?= $module['cols_type']; ?>">
 		<?php if($module['column_configuration']=='image-text') : ?>
-		<div class="column image-column reveal<?= $leftImageContainClass; ?>" style="background-image: url(<?php echo $module['left_column_image']['sizes']['half-width-full']; ?>);"></div>
+		<div class="column image-column reveal<?= $leftImageContainClass; ?>">
+			<?php echo wp_get_attachment_image( $module['left_column_image']['ID'], 'half-width-full', false, array( 'alt' => $module['left_column_image']['alt'] ) ); ?>
+		</div>
 		<?php else : ?>
 		<div class="column text-column reveal"><div class="text"><?php echo $module['left_column']; ?></div></div>
 		<?php endif; ?>
 		<?php if($module['column_configuration']=='text-image') : ?>
-		<div class="column image-column reveal<?= $rightImageContainClass; ?>" style="background-image: url(<?php echo $module['right_column_image']['sizes']['half-width-full']; ?>);"></div>
-		<?php else : ?>	
+		<div class="column image-column reveal<?= $rightImageContainClass; ?>">
+			<?php echo wp_get_attachment_image( $module['right_column_image']['ID'], 'half-width-full', false, array( 'alt' => $module['right_column_image']['alt'] ) ); ?>
+		</div>
+		<?php else : ?>
 		<div class="column text-column reveal"><div class="text"><?php echo $module['right_column']; ?></div></div>		
 		<?php endif; ?>
 	</div>
