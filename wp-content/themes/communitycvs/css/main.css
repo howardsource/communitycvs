@@ -2258,11 +2258,11 @@ body.page .site-main {
   content: "";
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 1rem;
   transform: translateY(-50%);
   background-image: url("../images/newsletter-left-illustration.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center right;
   background-size: contain;
   width: 25vw;
   height: 25vw;
@@ -2276,7 +2276,7 @@ body.page .site-main {
   right: 0;
   background-image: url("../images/newsletter-right-illustration.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center left;
   background-size: contain;
   width: 25vw;
   height: 25vw;
@@ -2292,7 +2292,7 @@ body.page .site-main {
   font-size: clamp(1.9rem, 2vw, 2.4rem);
   line-height: clamp(2.6rem, 2.67vw, 3.2rem);
   margin: 0 auto;
-  width: calc(100% - 80px);
+  width: 50vw;
   max-width: 412px;
   border-radius: 12px;
 }
@@ -2309,18 +2309,19 @@ body.page .site-main {
 }
 @media (max-width: 600px) {
   #modules .newsletter .inner:before, #modules .newsletter .inner:after {
-    width: 34vw;
-    height: 34vw;
+    top: 50px;
+    max-width: 120px;
+    max-height: 120px;
     opacity: 0.5;
   }
   #modules .newsletter .inner:before {
-    left: -12vw;
+    left: 5px;
   }
   #modules .newsletter .inner:after {
-    right: -12vw;
+    right: 5px;
   }
   #modules .newsletter p {
-    width: calc(100% - 2.4rem);
+    width: 50vw;
   }
 }
 #modules .tiles {
