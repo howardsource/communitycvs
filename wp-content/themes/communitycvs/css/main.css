@@ -2266,6 +2266,8 @@ body.page .site-main {
   background-size: contain;
   width: 25vw;
   height: 25vw;
+  max-width: 340px;
+  max-height: 340px;
 }
 #modules .newsletter .inner:after {
   content: "";
@@ -2279,6 +2281,8 @@ body.page .site-main {
   width: 25vw;
   height: 25vw;
   transform: translateY(-50%);
+  max-width: 340px;
+  max-height: 340px;
 }
 #modules .newsletter p {
   position: relative;
